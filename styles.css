@@ -1,0 +1,37 @@
+header {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  border: 2px solid black;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  height: 40em;
+}
+
+.column1, .column2, .column3 {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border: 2px solid black;
+  width: 33%;
+}
+
+.column2 {
+  align-items: center;
+}
+
+.hats-selection, .cloths-selection, .accessories-selection, .background-selection {
+  border: 2px solid black;
+  height: 25%;
+}
+
+.main-bear {
+  border: 2px solid black;
+  width: 95%;
+  height: 80%;
+  align-items: ;
+}
