@@ -38,5 +38,27 @@ main {
 .main-bear {
   border: 2px solid black;
   width: 95%;
-  height: 80%;
+  height: 85%;
+  justify-content: space-around;
+}
+
+.bear-image {
+  width: 100%;
+  height: 100%;
+}
+
+.name-bear-input {
+  width: 20em;
+  border: 2px solid black;
+}
+.saved-outfit-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0em .5em;
+  margin: .5em;
+  border: 2px solid black;
+  width: 40%;
+  height: 3em;
 }
