@@ -17,11 +17,17 @@ main {
   justify-content: center;
   flex-direction: column;
   border: 2px solid black;
-  width: 33%;
+  flex: 1;
 }
 
 .column2 {
   align-items: center;
+  justify-content: space-around;
+}
+
+.column3 {
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .hats-selection, .cloths-selection, .accessories-selection, .background-selection {
@@ -33,5 +39,4 @@ main {
   border: 2px solid black;
   width: 95%;
   height: 80%;
-  align-items: ;
 }
