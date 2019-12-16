@@ -25,12 +25,26 @@ main {
   justify-content: space-around;
 }
 
+.clothes-title{
+  margin-left: 0.75em;
+}
+
+.favoriteStyled{
+  display: inline-block;
+  cursor: pointer;
+  font-size: .75em;
+  height: 15%;
+  width: 15%;
+  margin: 0em 1em 1em 1em;
+  border-radius: 45%;
+}
+
 .column3 {
   align-items: center;
   justify-content: flex-start;
 }
 
-.hats-selection, .cloths-selection, .accessories-selection, .background-selection {
+#hats-selection, #clothes-selection, #accessories-selection, #background-selection {
   border: 2px solid black;
   height: 25%;
 }
