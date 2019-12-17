@@ -1,8 +1,47 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Rammetto One', cursive;
+  font-family: 'Comfortaa', cursive;
+  }
+
+html,
+body
+{
+  /* background-color: #D1D2D4; */
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Comfortaa', cursive;
+  background-color:#DCD3B2;
+}
+
 header {
   display: flex;
   justify-content: center;
   width: 100%;
-  border: 2px solid black;
+  /* border: 2px solid black; */
+  padding: 0px;
+  margin: 0px;
+  background-color: #43676B;
+}
+
+header h1 {
+  font-family: 'Rammetto One', cursive;
+  font-size: 2.75em;
+  letter-spacing: .1em;
+  color: #DCD3B2;
+  margin: 0;
+  margin-bottom: .5em;
+  border-bottom: 3px solid #DCD3B2;
+  border-radius: 6%;
+}
+
+.a-in-title {
+  font-family: 'Comfortaa', cursive;
+  font-weight: 400;
+  color: #ee836f;
+  font-size: 2em;
 }
 
 main {
@@ -16,8 +55,146 @@ main {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  border: 2px solid black;
+  /* border: 2px solid black; */
   flex: 1;
+}
+
+.column1 {
+  border-right: 4px solid #43676B;
+}
+
+h3 {
+  margin-top: 2%;
+  margin-bottom: 0;
+  color: #43676B;
+  font-size: 1.6em;
+  letter-spacing: .3em;
+}
+
+.arrows {
+  font-size: 1.3em;
+}
+
+button:focus {
+  outline:0;
+}
+
+#clothes-selection {
+  background-color: #ee836f;
+  border-bottom: 7px solid #dcd3b2;
+}
+
+#accessories-selection{
+  background-color: #00a3af;
+  border-bottom: 7px solid #dcd3b2;
+}
+
+#background-selection {
+  background-color: #dccb18;
+}
+
+#hats-selection {
+  background-color: #dcd3b2;
+}
+
+.hats-header-btns,
+.clothes-header-btns,
+.accessories-header-btns,
+.background-header-btns {
+margin-left: 5%;
+line-height: 2.2em;
+display: inline-block;
+}
+
+.margin-left-class-btn {
+  margin-left: 10px;
+}
+.hats-selection button {
+  cursor: pointer;
+  font-size: 1.5em;
+  background-color: #ee836f;
+  color: #dcd3b2;
+  text-transform: uppercase;
+  margin-top: 9px;
+  font-weight: 700;
+  border-radius: .5em;
+  padding: .3em .5em .1em .5em;
+  box-shadow: 0px 4px 1px 0px rgba(184,68,48,1);
+  border: none;
+}
+
+.hats-selection button:hover {
+  transition: .2s;
+  color: #ee836f;
+  background-color: #dcd3b2;
+  border: solid 3px #ee836f;
+  box-shadow: none;
+}
+
+.clothes-selection button {
+  cursor: pointer;
+  font-size: 1.5em;
+  background-color: #00a3af;
+  color: #dcd3b2;
+  text-transform: uppercase;
+  margin-top: 9px;
+  font-weight: 700;
+  border-radius: .5em;
+  padding: .3em .5em .1em .5em;
+  box-shadow: 0px 4px 1px 0px rgba(30,102,107,1);
+  border: none;
+}
+
+.clothes-selection button:hover {
+  transition: .2s;
+  color: #00a3af;
+  background-color: #dcd3b2;
+  border: solid 3px #43676B;
+  box-shadow: none;
+}
+
+.accessories-selection button {
+  cursor: pointer;
+  font-size: 1.5em;
+  background-color: #ee836f;
+  color: #dcd3b2;
+  text-transform: uppercase;
+  margin-top: 9px;
+  font-weight: 700;
+  border-radius: .5em;
+  padding: .3em .5em .1em .5em;
+  box-shadow: 0px 4px 1px 0px rgba(184,68,48,1);
+  border: none;
+}
+
+.accessories-selection button:hover {
+  transition: .2s;
+  color: #ee836f;
+  background-color: #dcd3b2;
+  border: solid 3px #ee836f;
+  box-shadow: none;
+}
+
+.background-selection button {
+  cursor: pointer;
+  font-size: 1.5em;
+  background-color: #00a3af;
+  color: #dcd3b2;
+  text-transform: uppercase;
+  margin-top: 9px;
+  font-weight: 700;
+  border-radius: .5em;
+  padding: .3em .5em .1em .5em;
+  box-shadow: 0px 4px 1px 0px rgba(30,102,107,1);
+  border: none;
+}
+
+.background-selection button:hover {
+  transition: .2s;
+  color: #00a3af;
+  background-color: #dcd3b2;
+  border: solid 3px #43676B;
+  box-shadow: none;
 }
 
 .column2 {
@@ -25,32 +202,24 @@ main {
   justify-content: space-around;
 }
 
-.clothes-title{
-  margin-left: 0.75em;
-}
-
-.favoriteStyled{
-  display: inline-block;
-  cursor: pointer;
-  font-size: .75em;
-  height: 15%;
-  width: 15%;
-  margin: 0em 1em 1em 1em;
-  border-radius: 45%;
-}
-
 .column3 {
   align-items: center;
   justify-content: flex-start;
 }
 
-.hats-selection, .clothes-selection, .accessories-selection, .background-selection {
-  border: 2px solid black;
-  height: 25%;
+
+#hats-selection, #clothes-selection, #accessories-selection, #background-selection {
+  /* border: 2px solid black; */
+  height: 100vh;
 }
 
-.main-bear {
+/* .hats-selection, .clothes-selection, .accessories-selection, .background-selection {
   border: 2px solid black;
+  height: 25%;
+} */
+
+.main-bear {
+  /* border: 2px solid black; */
   width: 95%;
   height: 85%;
   justify-content: space-around;

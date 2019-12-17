@@ -3,48 +3,55 @@
   <head>
     <link rel="stylesheet" href="styles.css">
     <title>Build-a-Bear</title>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa:400,700|Rammetto+One&display=swap" rel="stylesheet">
   </head>
   <body>
     <header>
-      <h1>Title</h1>
+      <h1>BUILD-<span class="a-in-title">a</span>-BEAR</h1>
     </header>
     <main>
       <!-- column1 -->
       <section class="column1">
-        <article class="hats-selection" id='test'>
-          <h3 class= clothes-title>Hats</h3>
-          <button class="hat-Options top-hat" type="button">Top Hat</button>
-          <button class="hat-Options sun-hat" type="button">Sun Hat</button>
-          <button class="hat-Options bow" type="button">Bow</button>
-          <button class="hat-Options crown" type="button">Crown</button>
+        <article class="hats-selection" id="hats-selection" id='test'>
+          <div class="hats-header-btns">
+            <h3 class="clothes-title"><span class="arrows">➮</span>Hats</h3>
+            <button class="favoriteStyled hat-Options top-hat" type="button">Top Hat</button>
+            <button class="favoriteStyled hat-Options sun-hat margin-left-class-btn" type="button">Sun Hat</button>
+            <button class="favoriteStyled hat-Options bow margin-left-class-btn" type="button">Bow</button>
+            <button class="favoriteStyled hat-Options crown" type="button">Crown</button>
+          </div>
         </article>
-        <article class="clothes-selection">
-          <h3 class= clothes-title>Clothes</h3>
-          <button class="clothes-Options t-Shirt" type="button">T-Shirt</button>
-          <button class="clothes-Options dress" type="button">Dress</button>
-          <button class="clothes-Options tuxedo" type="button">Tuxedo</button>
+        <article class="clothes-selection" id="clothes-selection">
+          <div class="clothes-header-btns">
+            <h3 class= clothes-title><span class="arrows">➩</span>Clothes</h3>
+            <button class="favoriteStyled clothes-Options t-Shirt" type="button">T-Shirt</button>
+            <button class="favoriteStyled clothes-Options dress margin-left-class-btn" type="button">Dress</button>
+            <button class="favoriteStyled clothes-Options tuxedo margin-left-class-btn" type="button">Tuxedo</button>
+        </div>
         </article>
-        <article class="accessories-selection">
-          <h3 class= clothes-title>Accessories</h3>
-          <button class="accessories-Options neckalace" type="button">Neckalace</button>
-          <button class="accessories-Options bowtie" type="button">Bowtie</button>
-          <button class="accessories-Options watch" type="button">Watch</button>
-          <button class="accessories-Options monocle" type="button">Monocle</button>
-          <button class="accessories-Options earrings" type="button">Earrings</button>
+        <article class="accessories-selection" id="accessories-selection">
+          <div class="accessories-header-btns">
+            <h3 clothes-title><span class="arrows">➫</span>Accessories</h3>
+            <button class="favoriteStyled accessories-Options neckalace" type="button">Necklace</button>
+            <button class="favoriteStyled accessories-Options bowtie margin-left-class-btn" type="button">Bowtie</button>
+            <button class="favoriteStyled accessories-Options watch margin-left-class-btn" type="button">Watch</button>
+            <button class="favoriteStyled accessories-Options monocle" type="button">Monocle</button>
+            <button class="favoriteStyled accessories-Options earrings margin-left-class-btn" type="button">Earrings</button>
+        </div>
         </article>
-        <article class="background-selection">
-          <h3 class= clothes-title>Backgrounds</h3>
-          <button class="background-Options blue" type="button">Blue</button>
-          <button class="background-Options park" type="button">Park</button>
-          <button class="background-Options beach" type="button">Beach</button>
-          <button class="background-Options space" type="button">Space</button>
-          <button class="background-Options yellow" type="button">Yellow</button>
-          <button class="background-Options hearts" type="button">Hearts</button>
+        <article class="background-selection" id="background-selection">
+          <div class="background-header-btns">
+            <h3 class= clothes-title><span class="arrows">➪</span>Backgrounds</h3>
+            <button class="favoriteStyled background-Options blue" type="button">Blue</button>
+            <button class="favoriteStyled background-Options park margin-left-class-btn" type="button">Park</button>
+            <button class="favoriteStyled background-Options beach margin-left-class-btn" type="button">Beach</button>
+            <button class="favoriteStyled background-Options space margin-left-class-btn" type="button">Space</button>
+            <button class="favoriteStyled background-Options yellow" type="button">Yellow</button>
+            <button class="favoriteStyled background-Options hearts margin-left-class-btn" type="button">Hearts</button>
+        </div>
         </article>
       </section>
-
-      <!-- column2 -->
-      <section class="column2">
+      <section class="column2"><!-- column2 -->
         <article class="main-bear">
           <img src="assets/bear.png" class="bear-image" alt="Main-Bear">
         </article>
@@ -55,7 +62,6 @@
           <button type="button" class="name-save-button">save</button>
         </article>
       </section>
-
       <!-- column3 -->
       <section class="column3">
         <h2>saved outfits</h2>
