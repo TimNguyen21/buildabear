@@ -110,7 +110,16 @@ display: inline-block;
 .margin-left-class-btn {
   margin-left: 10px;
 }
-.hats-selection button {
+
+.top-hat,
+.sun-hat,
+.bow,
+.crown,
+.necklace,
+.bowtie,
+.watch,
+.monocle,
+.earrings {
   cursor: pointer;
   font-size: 1.5em;
   background-color: #ee836f;
@@ -120,11 +129,19 @@ display: inline-block;
   font-weight: 700;
   border-radius: .5em;
   padding: .3em .5em .1em .5em;
-  box-shadow: 0px 4px 1px 0px rgba(184,68,48,1);
+  box-shadow: 0px 4px 1px 0px #b84430;
   border: none;
 }
 
-.hats-selection button:hover {
+.top-hat:hover,
+.sun-hat:hover,
+.bow:hover,
+.crown:hover,
+.necklace:hover,
+.bowtie:hover,
+.watch:hover,
+.monocle:hover,
+.earrings:hover {
   transition: .2s;
   color: #ee836f;
   background-color: #dcd3b2;
@@ -132,7 +149,20 @@ display: inline-block;
   box-shadow: none;
 }
 
-.clothes-selection button {
+.pink-button-active {
+  background-color: #b84430;
+  box-shadow: 0px 4px 1px 0px #ee836f;
+}
+
+.t-shirt,
+.dress,
+.tuxedo,
+.blue-background,
+.park-background,
+.beach-background,
+.space-background,
+.yellow-background,
+.heart-background {
   cursor: pointer;
   font-size: 1.5em;
   background-color: #00a3af;
@@ -146,7 +176,15 @@ display: inline-block;
   border: none;
 }
 
-.clothes-selection button:hover {
+.t-shirt:hover,
+.dress:hover,
+.tuxedo:hover,
+.blue-background:hover,
+.park-background:hover,
+.beach-background:hover,
+.space-background:hover,
+.yellow-background:hover,
+.heart-background:hover {
   transition: .2s;
   color: #00a3af;
   background-color: #dcd3b2;
@@ -154,48 +192,9 @@ display: inline-block;
   box-shadow: none;
 }
 
-.accessories-selection button {
-  cursor: pointer;
-  font-size: 1.5em;
-  background-color: #ee836f;
-  color: #dcd3b2;
-  text-transform: uppercase;
-  margin-top: 9px;
-  font-weight: 700;
-  border-radius: .5em;
-  padding: .3em .5em .1em .5em;
-  box-shadow: 0px 4px 1px 0px rgba(184,68,48,1);
-  border: none;
-}
-
-.accessories-selection button:hover {
-  transition: .2s;
-  color: #ee836f;
-  background-color: #dcd3b2;
-  border: solid 3px #ee836f;
-  box-shadow: none;
-}
-
-.background-selection button {
-  cursor: pointer;
-  font-size: 1.5em;
-  background-color: #00a3af;
-  color: #dcd3b2;
-  text-transform: uppercase;
-  margin-top: 9px;
-  font-weight: 700;
-  border-radius: .5em;
-  padding: .3em .5em .1em .5em;
-  box-shadow: 0px 4px 1px 0px rgba(30,102,107,1);
-  border: none;
-}
-
-.background-selection button:hover {
-  transition: .2s;
-  color: #00a3af;
-  background-color: #dcd3b2;
-  border: solid 3px #43676B;
-  box-shadow: none;
+.blue-button-active {
+  background-color: #1E666B;
+  box-shadow: 0px 4px 1px 0px #00a3af;
 }
 
 .column2 {
