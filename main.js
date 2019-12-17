@@ -41,6 +41,7 @@ function addBackground(e){
  }
 }
 
+
 // Background selector --start--
 var mainBearSection = document.querySelector('.main-bear');
 var blueBackgroundButton = document.querySelector('.blue-background');
