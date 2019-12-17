@@ -1,19 +1,11 @@
-var Outfit = require('../buildabear/outfit.js');
 
-
-window.onload = thisfunctionwehavetomake
-
-// global variable for outfit boxes
 var nakedBear = document.querySelector('.main-bear');
 var hats = document.querySelector('.hats-selection');
 var clothes = document.querySelector('.clothes-selection');
 var accessories = document.querySelector('.accessories-selection');
 var background = document.querySelector('.background-selection');
-
-// vairable to create unique id for outfit
-var uniqueId = function() {
-  return 'id-' + Math.random().toString(36).substr(2, 16);
-};
+var id = Date.now(id);
+var outfit = new Outfit(id);
 
 // event listener on options selection
 hats.addEventListener('click', addHats);

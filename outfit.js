@@ -13,5 +13,3 @@ class Outfit{
 
   }
 }
-
-module.exports = Outfit
