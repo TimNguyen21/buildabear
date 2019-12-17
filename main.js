@@ -15,38 +15,37 @@ yellowBackgroundButton.addEventListener('click', changeYellowBackground);
 heartBackgroundButton.addEventListener('click', changeHeartBackground);
 
 function changeBlueBackground() {
-  mainBearSection.style.backgroundImage = 'none';
-  mainBearSection.style.backgroundColor = 'none';
+  removeBackground();
   mainBearSection.style.backgroundColor = 'blue';
 }
 
 function changeParkBackground() {
-  mainBearSection.style.backgroundImage = 'none';
-  mainBearSection.style.backgroundColor = 'none';
+  removeBackground();
   mainBearSection.style.backgroundImage = "url('assets/park.png')";
 }
 
 function changeBeachBackground() {
-  mainBearSection.style.backgroundImage = 'none';
-  mainBearSection.style.backgroundColor = 'none';
+  removeBackground();
   mainBearSection.style.backgroundImage = "url('assets/beach.png')";
 }
 
 function changeSpaceBackground() {
-  mainBearSection.style.backgroundImage = 'none';
-  mainBearSection.style.backgroundColor = 'none';
+  removeBackground();
   mainBearSection.style.backgroundImage = "url('assets/outerspace.png')";
 }
 
 function changeYellowBackground() {
-  mainBearSection.style.backgroundImage = 'none';
-  mainBearSection.style.backgroundColor = 'none';
+  removeBackground();
   mainBearSection.style.backgroundColor = 'yellow';
 }
 
 function changeHeartBackground() {
+  removeBackground();
+  mainBearSection.style.backgroundImage = "url('assets/hearts.png')";
+}
+
+function removeBackground() {
   mainBearSection.style.backgroundImage = 'none';
   mainBearSection.style.backgroundColor = 'none';
-  mainBearSection.style.backgroundImage = "url('assets/hearts.png')";
 }
 // Background selector --end--
