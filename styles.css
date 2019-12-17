@@ -48,7 +48,7 @@ main {
   display: flex;
   justify-content: center;
   flex-direction: row;
-  height: 40em;
+  height: 43em;
 }
 
 .column1, .column2, .column3 {
@@ -81,12 +81,12 @@ button:focus {
 
 #clothes-selection {
   background-color: #ee836f;
-  border-bottom: 7px solid #dcd3b2;
+  border-bottom: 4px solid #43676B;
 }
 
 #accessories-selection{
   background-color: #00a3af;
-  border-bottom: 7px solid #dcd3b2;
+  border-bottom: 4px solid #43676B;
 }
 
 #background-selection {
@@ -95,6 +95,7 @@ button:focus {
 
 #hats-selection {
   background-color: #dcd3b2;
+  border-bottom: 4px solid #43676B;
 }
 
 .hats-header-btns,
@@ -207,6 +208,10 @@ display: inline-block;
   justify-content: flex-start;
 }
 
+.gutter-bottom {
+  background-color: #43676B;
+  height: 5em;
+}
 
 #hats-selection, #clothes-selection, #accessories-selection, #background-selection {
   /* border: 2px solid black; */
