@@ -14,7 +14,9 @@ background.addEventListener('click', addBackground);
 // add hats
 function addHats(e){
  if(e.target.classList.contains('hat-Options')){
+
    console.log(1);
+
  }
 }
 
