@@ -44,7 +44,7 @@ main {
   justify-content: flex-start;
 }
 
-#hats-selection, #clothes-selection, #accessories-selection, #background-selection {
+.hats-selection, .clothes-selection, .accessories-selection, .background-selection {
   border: 2px solid black;
   height: 25%;
 }
