@@ -1,8 +1,46 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Rammetto One', cursive;
+  font-family: 'Comfortaa', cursive;
+  }
+
+html,
+body
+{
+  /* background-color: #D1D2D4; */
+  width: auto;
+  height: auto;
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Comfortaa', cursive;
+  background-color:#DCD3B2;
+}
+
 header {
   display: flex;
   justify-content: center;
   width: 100%;
-  border: 2px solid black;
+  /* border: 2px solid black; */
+  padding: 0px;
+  margin: 0px;
+  background-color: #43676B;
+  border-bottom: 4px solid #c97f08;
+
+}
+
+header h1 {
+  font-family: 'Rammetto One', cursive;
+  font-size: 2.75em;
+  letter-spacing: .1em;
+  color: #DCD3B2;
+  margin: 0;
+  margin-bottom: .5em;
+}
+
+.a-in-title {
+  font-family: 'Comfortaa', cursive;
+  color: #ee836f;
+  font-size: 2em;
 }
 
 main {
@@ -12,12 +50,94 @@ main {
   height: 40em;
 }
 
+h3 {
+  margin-top: 2%;
+  margin-bottom: 0;
+  color: #43676B;
+  font-size: 1.6em;
+  letter-spacing: .3em;
+}
 .column1, .column2, .column3 {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  border: 2px solid black;
+  /* border: 2px solid black; */
   flex: 1;
+}
+
+.column1 {
+  border-right: 4px solid #c97f08;
+}
+
+#hats-selection {
+  background-color: #dcd3b2;
+  margin-left: 5%;
+  line-height: 2.2em;
+  display: inline-block;
+}
+
+.margin-left-class-btn {
+  margin-left: 10px;
+}
+.hats-selection button {
+  cursor: pointer;
+  font-size: 1.5em;
+  background-color: #ee836f;
+  color: #dcd3b2;
+  text-transform: uppercase;
+  /* margin-left: 0.75em; */
+  margin-top: 9px;
+  font-weight: 700;
+  border-radius: .5em;
+  padding: .3em .5em .1em .5em;
+  box-shadow: 0px 4px 1px 0px rgba(184,68,48,1);
+  transition: width 2s;
+  border: none;
+}
+
+.hats-selection button:hover {
+  color: #ee836f;
+  background-color: #dcd3b2;
+  border: solid 3px #ee836f;
+  box-shadow: none;
+}
+
+#clothes-selection {
+  /* margin-left: 3%; */
+}
+
+.clothes-selection button {
+  font-size: 1.5em;
+  background-color: #00a3af;
+  color: #dcd3b2;
+  text-transform: uppercase;
+  /* margin-left: 0.75em; */
+  margin-top: 9px;
+  font-weight: 700;
+  border-radius: .5em;
+  padding: .3em .5em .1em .5em;
+  box-shadow:
+}
+
+#accessories-selection {
+  /* margin-left: 3%; */
+
+}
+
+#background-selection {
+  /* margin-left: 3%; */
+}
+
+#clothes-selection {
+  background-color: #ee836f;
+}
+
+#accessories-selection{
+  background-color: #00a3af;
+}
+
+#background-selection {
+  background-color: #dccb18;
 }
 
 .column2 {
@@ -26,9 +146,9 @@ main {
 }
 
 .clothes-title{
-  margin-left: 0.75em;
+  /* margin-left: 0.75em; */
 }
-
+/*
 .favoriteStyled{
   display: inline-block;
   cursor: pointer;
@@ -37,7 +157,7 @@ main {
   width: 15%;
   margin: 0em 1em 1em 1em;
   border-radius: 45%;
-}
+} */
 
 .column3 {
   align-items: center;
@@ -45,12 +165,12 @@ main {
 }
 
 #hats-selection, #clothes-selection, #accessories-selection, #background-selection {
-  border: 2px solid black;
+  /* border: 2px solid black; */
   height: 25%;
 }
 
 .main-bear {
-  border: 2px solid black;
+  /* border: 2px solid black; */
   width: 95%;
   height: 80%;
 }
