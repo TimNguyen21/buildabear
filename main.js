@@ -22,18 +22,19 @@ accessories.addEventListener('click', addAccessories);
 background.addEventListener('click', addBackground);
 
 // add hats
-
-function addHats(e) {
-  // var lastClicked =
-  // if (e.target != e.currentTarget) {
+function addHats(e){
   if (e.target.classList.contains('top-hat')) {
-    outfit.addGarment('top-hat');
+    console.log(1);
+    outfit.addGarment(0, 'top-hat');
   } else if (e.target.classList.contains('sun-hat')) {
-    outfit.addGarment('sun-hat');
+    console.log(2);
+    outfit.addGarment(0, 'sun-hat');
   } else if (e.target.classList.contains('bow')) {
-    outfit.addGarment('bow');
+    console.log(3);
+    outfit.addGarment(0, 'bow');
   } else if (e.target.classList.contains('crown')) {
-    outfit.addGarment('crown');
+    console.log(4);
+    outfit.addGarment(0, 'crown');
   }
 }
 
@@ -47,7 +48,14 @@ function changeButtonToActive(event) {
 // add clothes
 function addClothes(e) {
   if (e.target.classList.contains('t-shirt')) {
-    console.log('Are the clothes being added to the array?');
+    console.log(1);
+    outfit.addGarment(1, 't-shirt');
+  } else if (e.target.classList.contains('dress')) {
+    console.log(2);
+    outfit.addGarment(1, 'dress');
+  } else if (e.target.classList.contains('tuxedo')) {
+    console.log(3);
+    outfit.addGarment(1, 'tuxedo');
   }
 }
 
