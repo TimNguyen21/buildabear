@@ -212,6 +212,16 @@ display: inline-block;
  top: 19%;
  left: 50%;
  transform: rotate(21deg);
+ box-sizing: border-box;
+}
+
+.sun-hat-img {
+  width: 190px;
+  position: absolute;
+  top: 14%;
+  left: 46%;
+  transform: rotate(0deg);
+  box-sizing: border-box;
 }
 
 .column3 {
