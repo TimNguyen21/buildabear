@@ -47,16 +47,45 @@ function addClothes(e) {
 // add accessories
 function addAccessories(e) {
   if (e.target.classList.contains('necklace')) {
-    console.log('Are accessories being added?');
+    console.log(1);
+    outfit.addGarment(2, 'necklace');
+  } else if (e.target.classList.contains('bowtie')) {
+    console.log(2);
+    outfit.addGarment(2, 'bowtie');
+  } else if (e.target.classList.contains('watch')) {
+    console.log(3);
+    outfit.addGarment(2, 'watch');
+  } else if (e.target.classList.contains('monocle')) {
+    console.log(4);
+    outfit.addGarment(2, 'monocle');
+  } else if (e.target.classList.contains('earrings')) {
+    console.log(4);
+    outfit.addGarment(2, 'earrings');
   }
 }
 
-// add background
-function addBackground(e) {
-  if (e.target.classList.contains('background-options-js')) {
-    console.log(4);
-  }
-}
+// // add background
+// function addBackground(e) {
+//   if (e.target.classList.contains('blue-background')) {
+//     console.log(1);
+//     changeBlueBackground();
+//   } else if (e.target.classList.contains('park-background')) {
+//     console.log(2);
+//     changeParkBackground();
+//   } else if (e.target.classList.contains('beach-background')) {
+//     console.log(3);
+//     changeBeachBackground();
+//   } else if (e.target.classList.contains('space-background')) {
+//     console.log(4);
+//     changeSpaceBackground();
+//   } else if (e.target.classList.contains('yellow-background')) {
+//     console.log(4);
+//     changeYellowBackground();
+//   } else if (e.target.classList.contains('heart-background')) {
+//     console.log(4);
+//     changeHeartBackground();
+//   }
+// }
 
 // Background selector --start--
 var mainBearSection = document.querySelector('.main-bear');
