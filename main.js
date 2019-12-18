@@ -9,6 +9,14 @@ var outfit = new Outfit(id, null, [], null);
 
 // event listener on options selection
 hats.addEventListener('click', addHats);
+
+// hats.addEventListener('click', changeButtonToActive);
+// hats.addEventListener('click', function() {
+//   changeButtonToActive();
+//   console.log('is the change button state working')
+//   addHats();
+// });
+
 clothes.addEventListener('click', addClothes);
 accessories.addEventListener('click', addAccessories);
 background.addEventListener('click', addBackground);
@@ -27,6 +35,13 @@ function addHats(e){
   } else if (e.target.classList.contains('crown')) {
     console.log(4);
     outfit.addGarment(0, 'crown');
+  }
+}
+
+function changeButtonToActive(event) {
+  if (event.target.classList.contains('.hat-options-js')) {
+    console.log('turning pink button to active');
+    event.target.closest('.hat-options-js').classList.add('.pink-button-active');
   }
 }
 
