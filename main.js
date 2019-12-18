@@ -46,55 +46,84 @@ function addAccessories(e) {
 // add background
 function addBackground(e) {
   if (e.target.classList.contains('background-options-js')) {
-    console.log(4);
+    if (e.target.classList.contains('blue-background')) {
+      outfit.background = 'blue';
+    } else if (e.target.classList.contains('park-background')) {
+      outfit.background = 'park';
+    } else if (e.target.classList.contains('beach-background')) {
+      outfit.background = 'beach';
+    } else if (e.target.classList.contains('space-background')) {
+      outfit.background = 'space';
+    } else if (e.target.classList.contains('yellow-background')) {
+      outfit.background = 'yellow';
+    } else if (e.target.classList.contains('heart-background')) {
+      outfit.background = 'heart';
+    }
+    changeBackground();
   }
 }
 
 // Background selector --start--
 var mainBearSection = document.querySelector('.main-bear');
-var blueBackgroundButton = document.querySelector('.blue-background');
-var parkBackgroundButton = document.querySelector('.park-background');
-var beachBackgroundButton = document.querySelector('.beach-background');
-var spaceBackgroundButton = document.querySelector('.space-background');
-var yellowBackgroundButton = document.querySelector('.yellow-background');
-var heartBackgroundButton = document.querySelector('.heart-background');
+// var blueBackgroundButton = document.querySelector('.blue-background');
+// var parkBackgroundButton = document.querySelector('.park-background');
+// var beachBackgroundButton = document.querySelector('.beach-background');
+// var spaceBackgroundButton = document.querySelector('.space-background');
+// var yellowBackgroundButton = document.querySelector('.yellow-background');
+// var heartBackgroundButton = document.querySelector('.heart-background');
 
-blueBackgroundButton.addEventListener('click', changeBlueBackground);
-parkBackgroundButton.addEventListener('click', changeParkBackground);
-beachBackgroundButton.addEventListener('click', changeBeachBackground);
-spaceBackgroundButton.addEventListener('click', changeSpaceBackground);
-yellowBackgroundButton.addEventListener('click', changeYellowBackground);
-heartBackgroundButton.addEventListener('click', changeHeartBackground);
+// blueBackgroundButton.addEventListener('click', changeBlueBackground);
+// parkBackgroundButton.addEventListener('click', changeParkBackground);
+// beachBackgroundButton.addEventListener('click', changeBeachBackground);
+// spaceBackgroundButton.addEventListener('click', changeSpaceBackground);
+// yellowBackgroundButton.addEventListener('click', changeYellowBackground);
+// heartBackgroundButton.addEventListener('click', changeHeartBackground);
 
-function changeBlueBackground() {
+function changeBackground() {
   removeBackground();
-  mainBearSection.style.backgroundColor = '#00a3af';
+  if (outfit.background == 'blue') {
+    mainBearSection.style.backgroundColor = '#00a3af';
+  } else if (outfit.background == 'park') {
+    mainBearSection.style.backgroundImage = "url('assets/park.png')";
+  } else if (outfit.background == 'beach') {
+    mainBearSection.style.backgroundImage = "url('assets/beach.png')";
+  } else if (outfit.background == 'space') {
+    mainBearSection.style.backgroundImage = "url('assets/outerspace.png')";
+  } else if (outfit.background == 'yellow') {
+    mainBearSection.style.backgroundColor = '#dccb18';
+  } else if (outfit.background == 'heart') {
+    mainBearSection.style.backgroundImage = "url('assets/hearts.png')";
+  }
+  // removeBackground();
+  // mainBearSection.style.backgroundColor = '#00a3af';
+  // var background = document.getElementById('blue-background');
+  // outfit(background) = background;
 }
 
-function changeParkBackground() {
-  removeBackground();
-  mainBearSection.style.backgroundImage = "url('assets/park.png')";
-}
+// function changeParkBackground() {
+//   removeBackground();
+//   mainBearSection.style.backgroundImage = "url('assets/park.png')";
+// }
 
-function changeBeachBackground() {
-  removeBackground();
-  mainBearSection.style.backgroundImage = "url('assets/beach.png')";
-}
+// function changeBeachBackground() {
+//   removeBackground();
+//   mainBearSection.style.backgroundImage = "url('assets/beach.png')";
+// }
 
-function changeSpaceBackground() {
-  removeBackground();
-  mainBearSection.style.backgroundImage = "url('assets/outerspace.png')";
-}
-
-function changeYellowBackground() {
-  removeBackground();
-  mainBearSection.style.backgroundColor = '#dccb18';
-}
-
-function changeHeartBackground() {
-  removeBackground();
-  mainBearSection.style.backgroundImage = "url('assets/hearts.png')";
-}
+// function changeSpaceBackground() {
+//   removeBackground();
+//   mainBearSection.style.backgroundImage = "url('assets/outerspace.png')";
+// }
+//
+// function changeYellowBackground() {
+//   removeBackground();
+  // mainBearSection.style.backgroundColor = '#dccb18';
+// }
+//
+// function changeHeartBackground() {
+//   removeBackground();
+//   mainBearSection.style.backgroundImage = "url('assets/hearts.png')";
+// }
 
 function removeBackground() {
   mainBearSection.style.backgroundImage = 'none';
