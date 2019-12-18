@@ -14,18 +14,19 @@ accessories.addEventListener('click', addAccessories);
 background.addEventListener('click', addBackground);
 
 // add hats
-
 function addHats(e){
-  // var lastClicked =
-  // if (e.target != e.currentTarget) {
   if (e.target.classList.contains('top-hat')) {
-    outfit.addGarment('top hat');
+    console.log(1);
+    outfit.addGarment(0, 'top-hat');
   } else if (e.target.classList.contains('sun-hat')) {
-    outfit.addGarment('sun hat');
+    console.log(2);
+    outfit.addGarment(0, 'sun-hat');
   } else if (e.target.classList.contains('bow')) {
-    outfit.addGarment('bow');
+    console.log(3);
+    outfit.addGarment(0, 'bow');
   } else if (e.target.classList.contains('crown')) {
-    outfit.addGarment('crown');
+    console.log(4);
+    outfit.addGarment(0, 'crown');
   }
 }
 
