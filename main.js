@@ -33,7 +33,14 @@ function addHats(e){
 // add clothes
 function addClothes(e) {
   if (e.target.classList.contains('t-shirt')) {
-    console.log('Are the clothes being added to the array?');
+    console.log(1);
+    outfit.addGarment(1, 't-shirt');
+  } else if (e.target.classList.contains('dress')) {
+    console.log(2);
+    outfit.addGarment(1, 'dress');
+  } else if (e.target.classList.contains('tuxedo')) {
+    console.log(3);
+    outfit.addGarment(1, 'tuxedo');
   }
 }
 
