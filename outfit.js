@@ -1,8 +1,9 @@
 class Outfit{
-  constructor(){
-    this.hats = hats
-    this.clothes = clothes
-    this.accessories = accesories
+  constructor(id, title, background){
+    this.id = id;
+    this.title = title;
+    this.garments = [];
+    this.background = background;
   }
   addGarment(){
 
