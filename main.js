@@ -29,18 +29,36 @@ function removedButtonActive(event) {
     hatsButtons[i].classList.remove('pink-button-active');
   }
 }
+// hats selction -below-
+var topHatImg = document.querySelector('.top-hat-img');
+var sunHatImg = document.querySelector('.sun-hat-img');
+var bowHatImg = document.querySelector('.bow-hat-img');
+var crownHatImg = document.querySelector('.crown-hat-img');
+
+
+function removeAllHats() {
+  topHatImg.classList.add('hidden');
+  sunHatImg.classList.add('hidden');
+  bowHatImg.classList.add('hidden');
+  crownHatImg.classList.add('hidden');
+}
 
 // add hats
 function addHats(e){
   console.log(e.target)
+  removeAllHats();
   if (e.target.classList.contains('top-hat')) {
     outfit.addGarment(0, 'top-hat');
+    topHatImg.classList.toggle('hidden');
   } else if (e.target.classList.contains('sun-hat')) {
     outfit.addGarment(0, 'sun-hat');
+    sunHatImg.classList.remove('hidden');
   } else if (e.target.classList.contains('bow')) {
     outfit.addGarment(0, 'bow');
+    bowHatImg.classList.toggle('hidden');
   } else if (e.target.classList.contains('crown')) {
     outfit.addGarment(0, 'crown');
+    crownHatImg.classList.toggle('hidden');
   }
 }
 
