@@ -7,24 +7,26 @@ var background = document.querySelector('.background-selection');
 var id = Date.now(id);
 var outfit = new Outfit(id, null, [], null);
 
-// event listener on options selection
-// hats.addEventListener('click', addHats);
-
 hats.addEventListener('click', activeState);
+clothes.addEventListener('click', addClothes);
+accessories.addEventListener('click', addAccessories);
+background.addEventListener('click', addBackground);
 
 function activeState(event) {
   changeButtonToActive(event);
   addHats(event);
 }
 
-clothes.addEventListener('click', addClothes);
-accessories.addEventListener('click', addAccessories);
-background.addEventListener('click', addBackground);
-
 function changeButtonToActive(event) {
-  if (event.target.classList.contains('hat-options-js')) {
-    event.target.closest('.hat-options-js').classList.add('pink-button-active');
-    console.log(1);
+  removedButtonActive();
+  if (event.target.classList.contains('hats-btn')) {
+    event.target.classList.add('pink-button-active');
+  }
+}
+
+function removedButtonActive(event) {
+  for (var i = 0; i < hatsButtons.length; i++) {
+    hatsButtons[i].classList.remove('pink-button-active');
   }
 }
 
@@ -39,19 +41,6 @@ function addHats(e){
     outfit.addGarment(0, 'bow');
   } else if (e.target.classList.contains('crown')) {
     outfit.addGarment(0, 'crown');
-  }
-}
-
-function removedButtonActive(event) {
-  for (var i = 0; i < hatsButtons.length; i++) {
-    hatsButtons[i].classList.remove('pink-button-active');
-  }
-}
-
-function changeButtonToActive(event) {
-  removedButtonActive();
-  if (event.target.classList.contains('hats-btn')) {
-    event.target.classList.add('pink-button-active');
   }
 }
 
@@ -101,29 +90,6 @@ function addBackground(e) {
     changeBackground();
   }
 }
-
-// // add background
-// function addBackground(e) {
-//   if (e.target.classList.contains('blue-background')) {
-//     console.log(1);
-//     changeBlueBackground();
-//   } else if (e.target.classList.contains('park-background')) {
-//     console.log(2);
-//     changeParkBackground();
-//   } else if (e.target.classList.contains('beach-background')) {
-//     console.log(3);
-//     changeBeachBackground();
-//   } else if (e.target.classList.contains('space-background')) {
-//     console.log(4);
-//     changeSpaceBackground();
-//   } else if (e.target.classList.contains('yellow-background')) {
-//     console.log(4);
-//     changeYellowBackground();
-//   } else if (e.target.classList.contains('heart-background')) {
-//     console.log(4);
-//     changeHeartBackground();
-//   }
-// }
 
 // Background selector --start--
 function removeBackground() {
