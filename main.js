@@ -1,5 +1,6 @@
 var mainBearSection = document.querySelector('.main-bear');
 var hats = document.querySelector('.hats-selection');
+var hatsButtons = document.querySelectorAll('.hats-btn');
 var clothes = document.querySelector('.clothes-selection');
 var accessories = document.querySelector('.accessories-selection');
 var background = document.querySelector('.background-selection');
@@ -7,14 +8,14 @@ var id = Date.now(id);
 var outfit = new Outfit(id, null, [], null);
 
 // event listener on options selection
-hats.addEventListener('click', addHats);
+// hats.addEventListener('click', addHats);
 
-hats.addEventListener('click', changeButtonToActive);
-// hats.addEventListener('click', function() {
-//   changeButtonToActive();
-//   console.log('is the change button state working')
-//   addHats();
-// });
+hats.addEventListener('click', activeState);
+
+function activeState(event) {
+  changeButtonToActive(event);
+  addHats(event);
+}
 
 clothes.addEventListener('click', addClothes);
 accessories.addEventListener('click', addAccessories);
@@ -29,6 +30,7 @@ function changeButtonToActive(event) {
 
 // add hats
 function addHats(e){
+  console.log(e.target)
   if (e.target.classList.contains('top-hat')) {
     outfit.addGarment(0, 'top-hat');
   } else if (e.target.classList.contains('sun-hat')) {
@@ -40,6 +42,18 @@ function addHats(e){
   }
 }
 
+function removedButtonActive(event) {
+  for (var i = 0; i < hatsButtons.length; i++) {
+    hatsButtons[i].classList.remove('pink-button-active');
+  }
+}
+
+function changeButtonToActive(event) {
+  removedButtonActive();
+  if (event.target.classList.contains('hats-btn')) {
+    event.target.classList.add('pink-button-active');
+  }
+}
 
 // add clothes
 function addClothes(e) {
