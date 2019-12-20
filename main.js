@@ -13,7 +13,6 @@ accessories.addEventListener('click', addAccessories);
 background.addEventListener('click', addBackground);
 
 function hatSelectorEventHandler(event) {
-  debugger;
   if (event.target.classList.contains('pink-button-active')) {
     removeAllHats();
     removedButtonActive();

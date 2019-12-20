@@ -236,6 +236,33 @@ display: inline-block;
   box-sizing: border-box;
 }
 
+.watch-img {
+  width: 73px;
+  height: 83px;
+  position: absolute;
+  top: 42%;
+  left: 39%;
+  transform: rotate(65deg);
+}
+
+
+.necklace-img {
+  width: 96px;
+  height: 53px;
+  position: absolute;
+  top: 53%;
+  left: 45%;
+  transform: rotate(12deg);
+}
+
+.bowtie-img {
+  width: 50px;
+  height: 55px;
+  position: absolute;
+  top: 45%;
+  left: 49%;
+}
+
 .column3 {
   align-items: center;
   justify-content: flex-start;
