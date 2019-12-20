@@ -49,16 +49,16 @@ function addHats(e){
   removeAllHats();
   if (e.target.classList.contains('top-hat')) {
     outfit.addGarment(0, 'top-hat');
-    topHatImg.classList.toggle('hidden');
+    topHatImg.classList.remove('hidden');
   } else if (e.target.classList.contains('sun-hat')) {
     outfit.addGarment(0, 'sun-hat');
     sunHatImg.classList.remove('hidden');
   } else if (e.target.classList.contains('bow')) {
     outfit.addGarment(0, 'bow');
-    bowHatImg.classList.toggle('hidden');
+    bowHatImg.classList.remove('hidden');
   } else if (e.target.classList.contains('crown')) {
     outfit.addGarment(0, 'crown');
-    crownHatImg.classList.toggle('hidden');
+    crownHatImg.classList.remove('hidden');
   }
 }
 
