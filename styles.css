@@ -51,7 +51,8 @@ main {
   height: 43em;
 }
 
-.column1, .column2, .column3 {
+.column1,
+.column2 {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -61,6 +62,15 @@ main {
 
 .column1 {
   border-right: 4px solid #43676B;
+}
+
+.column3 {
+  flex: 1;
+  border-left: 4px solid #43676B;
+}
+
+.column3 h3 {
+  margin-left: 5%;
 }
 
 h3 {
@@ -300,6 +310,7 @@ display: inline-block;
   width: 20em;
   border: 2px solid black;
 }
+
 .saved-outfit-box {
   display: flex;
   flex-direction: row;
