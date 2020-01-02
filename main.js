@@ -184,3 +184,14 @@ function changeBackground() {
   }
 }
 // Background selector --end--
+
+//Save a new outfit to the right hand comlumn
+var saveNewBearInput = document.querySelector('.name-bear-input');
+var savedOutfitsSection = document.querySelector('.column3');
+var saveNewBearButton = document.querySelector('.name-save-button');
+saveNewBearButton.addEventListener('click', createNewBearCard);
+
+function createNewBearCard() {
+  var randomColorBackground = ['']
+  savedOutfitsSection.innerHTML += `<article class="saved-outfit-box"><span>${saveNewBearInput.value}</span><div class="close-x-icon">X</div></article>`
+}
