@@ -36,6 +36,7 @@ function removedHatButtonActive(event) {
     hatsButtons[i].classList.remove('pink-button-active');
   }
 }
+
 // Hats Event Listener -end-
 
 // Accessories Event Listener -begin-
@@ -61,6 +62,7 @@ function removedAccessoriesButtonActive(event) {
     accessoriesButtons[i].classList.remove('pink-button-active');
   }
 }
+
 // Accessories Event Listener -end-
 
 // hats selction -below-
@@ -77,7 +79,7 @@ function removeAllHats() {
 }
 
 // add hats
-function addHats(e){
+function addHats(e) {
   if (e.target.classList.contains('top-hat')) {
     removeAllHats();
     outfit.addGarment(0, 'top-hat');
@@ -137,15 +139,15 @@ function removeAllAccessories() {
 // add accessories
 function addAccessories(e) {
   if (e.target.classList.contains('necklace')) {
-    removeAllAccessories()
+    removeAllAccessories();
     outfit.addGarment(2, 'necklace');
     necklaceImg.classList.remove('hidden');
   } else if (e.target.classList.contains('bowtie')) {
-    removeAllAccessories()
+    removeAllAccessories();
     outfit.addGarment(2, 'bowtie');
     bowtieImg.classList.remove('hidden');
   } else if (e.target.classList.contains('watch')) {
-    removeAllAccessories()
+    removeAllAccessories();
     outfit.addGarment(2, 'watch');
     watchImg.classList.remove('hidden');
   } else if (e.target.classList.contains('sunglasses')) {
@@ -174,6 +176,7 @@ function addBackground(e) {
     } else if (e.target.classList.contains('heart-background')) {
       outfit.background = 'heart';
     }
+
     changeBackground();
   }
 }
@@ -200,6 +203,7 @@ function changeBackground() {
     mainBearSection.style.backgroundImage = "url('assets/hearts.png')";
   }
 }
+
 // Background selector --end--
 
 // save oufit button function --begin--
@@ -211,6 +215,7 @@ saveNewBearButton.disabled = true;
 
 saveNewBearInput.addEventListener('keyup', enableSaveButton);
 saveNewBearButton.addEventListener('click', createNewBearCard);
+savedOutfitsSection.addEventListener('click', closeOutCard);
 
 function enableSaveButton() {
   if (saveNewBearInput.value == '') {
@@ -228,7 +233,15 @@ function chooseRandomColor() {
 
 function createNewBearCard() {
   savedOutfitsSection.innerHTML += `<article class="saved-outfit-box" style="background-color:${chooseRandomColor()}"><span>${saveNewBearInput.value}</span><div class="close-x-icon">X</div></article>`
-  saveNewBearInput.value = "";
+  saveNewBearInput.value = '';
   saveNewBearButton.disabled = true;
 }
-// save oufit button function --end--
+
+function closeOutCard(event) {
+  if (event.target.classList.contains('close-x-icon')) {
+    // console.log('hit the delete btn');
+    event.target.closest('.saved-outfit-box').remove();
+  }
+}
+
+// save / delete oufit button function --end--
