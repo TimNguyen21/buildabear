@@ -2,6 +2,7 @@ var mainBearSection = document.querySelector('.main-bear');
 var hats = document.querySelector('.hats-selection');
 var hatsButtons = document.querySelectorAll('.hats-btn');
 var accessoriesButtons = document.querySelectorAll('.accessories-btn');
+var clothesButtons = document.querySelectorAll('.clothes-btn');
 var clothes = document.querySelector('.clothes-selection');
 var accessories = document.querySelector('.accessories-selection');
 var background = document.querySelector('.background-selection');
@@ -9,7 +10,7 @@ var id = Date.now(id);
 var outfit = new Outfit(id, null, [], null);
 
 hats.addEventListener('click', hatSelectorEventHandler);
-clothes.addEventListener('click', addClothes);
+clothes.addEventListener('click', clothesSelectorEventHandler);
 accessories.addEventListener('click', accessoriesSelectorEventHandler);
 background.addEventListener('click', addBackground);
 
@@ -38,6 +39,31 @@ function removedHatButtonActive(event) {
 }
 // Hats Event Listener -end-
 
+// Clothes Event Listener -begin-
+function clothesSelectorEventHandler(event) {
+  if (event.target.classList.contains('blue-button-active')) {
+    removeAllClothes();
+    removedClothesButtonActive();
+  } else {
+    changeClothesButtonToActive(event);
+    addClothes(event);
+  }
+}
+
+function changeClothesButtonToActive(event) {
+  removedClothesButtonActive();
+  if (event.target.classList.contains('clothes-btn')) {
+    event.target.classList.add('blue-button-active');
+  }
+}
+
+function removedClothesButtonActive(event) {
+  for (var i = 0; i < clothesButtons.length; i++) {
+    clothesButtons[i].classList.remove('blue-button-active');
+  }
+}
+// Clothes Event Listener -end-
+
 // Accessories Event Listener -begin-
 function accessoriesSelectorEventHandler(event) {
   if (event.target.classList.contains('pink-button-active')) {
@@ -62,6 +88,7 @@ function removedAccessoriesButtonActive(event) {
   }
 }
 // Accessories Event Listener -end-
+
 
 // hats selction -below-
 var topHatImg = document.querySelector('.top-hat-img');
@@ -104,7 +131,6 @@ var vestImg = document.querySelector('.vest-img');
 function removeAllClothes() {
   dressImg.classList.add('hidden');
   vestImg.classList.add('hidden');
-  console.log(1);
 }
 
 // add clothes
@@ -152,9 +178,6 @@ function addAccessories(e) {
     removeAllAccessories();
     outfit.addGarment(2, 'sunglasses');
     sunglassesImg.classList.remove('hidden');
-  } else if (e.target.classList.contains('earrings')) {
-    outfit.addGarment(2, 'earrings');
-    console.log('Are accessories being added?');
   }
 }
 
