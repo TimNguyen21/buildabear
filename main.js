@@ -185,25 +185,25 @@ function changeBackground() {
 }
 // Background selector --end--
 
-// save oufit button function
-var saveOutfitNameInput = document.querySelector('.name-bear-input');
-var saveOutfitButton = document.querySelector('.name-save-button');
+// save oufit button function --begin--
+var saveNewBearInput = document.querySelector('.name-bear-input');
+var saveNewBearButton = document.querySelector('.name-save-button');
 
-saveOutfitButton.disabled = true;
+saveNewBearButton.disabled = true;
 
-saveOutfitNameInput.addEventListener('keyup', enableSaveButton);
-saveOutfitButton.addEventListener('click', saveOutfit);
+saveNewBearInput.addEventListener('keyup', enableSaveButton);
+saveNewBearButton.addEventListener('click', createNewBearCard);
 
 function enableSaveButton() {
-  if (saveOutfitNameInput.value == '') {
-    saveOutfitButton.disabled = true;
+  if (saveNewBearInput.value == '') {
+    saveNewBearButton.disabled = true;
   } else {
-    saveOutfitButton.disabled = false;
+    saveNewBearButton.disabled = false;
   }
 }
 
-function saveOutfit() {
-  saveOutfitNameInput.value = "";
-  saveOutfitButton.disabled = true;
-  console.log('new code here');
+function createNewBearCard() {
+  saveNewBearInput.value = "";
+  saveNewBearButton.disabled = true;
 }
+// save oufit button function --end--
