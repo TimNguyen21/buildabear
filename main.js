@@ -191,7 +191,12 @@ var savedOutfitsSection = document.querySelector('.column3');
 var saveNewBearButton = document.querySelector('.name-save-button');
 saveNewBearButton.addEventListener('click', createNewBearCard);
 
+var randomColorBackground = ['#ee836f', '#dccb18', '#00a3af'];
+function chooseRandomColor() {
+  var i = Math.floor(Math.random() * 3);
+  return randomColorBackground[i];
+}
+
 function createNewBearCard() {
-  var randomColorBackground = ['']
-  savedOutfitsSection.innerHTML += `<article class="saved-outfit-box"><span>${saveNewBearInput.value}</span><div class="close-x-icon">X</div></article>`
+  savedOutfitsSection.innerHTML += `<article class="saved-outfit-box" style="background-color:${chooseRandomColor()}"><span>${saveNewBearInput.value}</span><div class="close-x-icon">X</div></article>`
 }
