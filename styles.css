@@ -118,7 +118,7 @@ display: inline-block;
 .necklace,
 .bowtie,
 .watch,
-.monocle,
+.sunglasses,
 .earrings {
   cursor: pointer;
   font-size: 1.5em;
@@ -140,7 +140,7 @@ display: inline-block;
 .necklace:hover,
 .bowtie:hover,
 .watch:hover,
-.monocle:hover,
+.sunglasses:hover,
 .earrings:hover {
   transition: .2s;
   color: #ee836f;
@@ -154,7 +154,7 @@ display: inline-block;
   box-shadow: 0px 4px 1px 0px #ee836f;
 }
 
-.t-shirt,
+.vest,
 .dress,
 .tuxedo,
 .blue-background,
@@ -176,7 +176,7 @@ display: inline-block;
   border: none;
 }
 
-.t-shirt:hover,
+.vest:hover,
 .dress:hover,
 .tuxedo:hover,
 .blue-background:hover,
@@ -230,9 +230,19 @@ display: inline-block;
   width: 360px;
   height: 520px;
   position: absolute;
-  top: 20.5%;
+  top: 19.5%;
   left: 37%;
   transform: rotate(4deg);
+  box-sizing: border-box;
+}
+
+.vest-img {
+  width: 390px;
+  height: 520px;
+  position: absolute;
+  top: 19%;
+  left: 36%;
+  transform: rotate(1deg);
   box-sizing: border-box;
 }
 
@@ -247,10 +257,10 @@ display: inline-block;
 
 
 .necklace-img {
-  width: 96px;
-  height: 53px;
+  width: 114px;
+  height: 55px;
   position: absolute;
-  top: 53%;
+  top: 47%;
   left: 45%;
   transform: rotate(12deg);
 }
@@ -261,6 +271,15 @@ display: inline-block;
   position: absolute;
   top: 45%;
   left: 49%;
+}
+
+.sunglasses-img {
+  width: 206px;
+  height: 83px;
+  position: absolute;
+  top: 32%;
+  left: 44%;
+  transform: rotate(14deg);
 }
 
 .column3 {

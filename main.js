@@ -97,26 +97,32 @@ function addHats(e){
   }
 }
 
+// clothes selection -below-
+var dressImg = document.querySelector('dress-img');
+var vestImg = document.querySelector('.vest-img');
+
+
 // add clothes
 function addClothes(e) {
-  if (e.target.classList.contains('t-shirt')) {
-    outfit.addGarment(1, 't-shirt');
+  if (e.target.classList.contains('vest')) {
+    outfit.addGarment(1, 'vest');
   } else if (e.target.classList.contains('dress')) {
     outfit.addGarment(1, 'dress');
-  } else if (e.target.classList.contains('tuxedo')) {
-    outfit.addGarment(1, 'tuxedo');
   }
 }
 
-// accessories selction -below-
+// accessories selection -below-
 var necklaceImg = document.querySelector('.necklace-img');
 var bowtieImg = document.querySelector('.bowtie-img');
 var watchImg = document.querySelector('.watch-img');
+var sunglassesImg = document.querySelector('.sunglasses-img');
 
 function removeAllAccessories() {
   necklaceImg.classList.add('hidden');
   bowtieImg.classList.add('hidden');
   watchImg.classList.add('hidden');
+  sunglassesImg.classList.add('hidden');
+
 }
 
 // add accessories
@@ -133,8 +139,10 @@ function addAccessories(e) {
     removeAllAccessories()
     outfit.addGarment(2, 'watch');
     watchImg.classList.remove('hidden');
-  } else if (e.target.classList.contains('monocle')) {
-    outfit.addGarment(2, 'monocle');
+  } else if (e.target.classList.contains('sunglasses')) {
+    removeAllAccessories();
+    outfit.addGarment(2, 'sunglasses');
+    sunglassesImg.classList.remove('hidden');
   } else if (e.target.classList.contains('earrings')) {
     outfit.addGarment(2, 'earrings');
     console.log('Are accessories being added?');
