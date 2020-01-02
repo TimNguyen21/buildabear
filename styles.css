@@ -51,7 +51,8 @@ main {
   height: 43em;
 }
 
-.column1, .column2, .column3 {
+.column1,
+.column2 {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -61,6 +62,15 @@ main {
 
 .column1 {
   border-right: 4px solid #43676B;
+}
+
+.column3 {
+  flex: 1;
+  border-left: 4px solid #43676B;
+}
+
+.column3 h3 {
+  margin-left: 5%;
 }
 
 h3 {
@@ -118,8 +128,7 @@ display: inline-block;
 .necklace,
 .bowtie,
 .watch,
-.monocle,
-.earrings {
+.sunglasses {
   cursor: pointer;
   font-size: 1.5em;
   background-color: #ee836f;
@@ -140,8 +149,7 @@ display: inline-block;
 .necklace:hover,
 .bowtie:hover,
 .watch:hover,
-.monocle:hover,
-.earrings:hover {
+.sunglasses:hover {
   transition: .2s;
   color: #ee836f;
   background-color: #dcd3b2;
@@ -154,9 +162,8 @@ display: inline-block;
   box-shadow: 0px 4px 1px 0px #ee836f;
 }
 
-.t-shirt,
+.vest,
 .dress,
-.tuxedo,
 .blue-background,
 .park-background,
 .beach-background,
@@ -176,9 +183,8 @@ display: inline-block;
   border: none;
 }
 
-.t-shirt:hover,
+.vest:hover,
 .dress:hover,
-.tuxedo:hover,
 .blue-background:hover,
 .park-background:hover,
 .beach-background:hover,
@@ -230,9 +236,19 @@ display: inline-block;
   width: 360px;
   height: 520px;
   position: absolute;
-  top: 20.5%;
+  top: 19.5%;
   left: 37%;
   transform: rotate(4deg);
+  box-sizing: border-box;
+}
+
+.vest-img {
+  width: 390px;
+  height: 520px;
+  position: absolute;
+  top: 19%;
+  left: 36%;
+  transform: rotate(1deg);
   box-sizing: border-box;
 }
 
@@ -247,10 +263,10 @@ display: inline-block;
 
 
 .necklace-img {
-  width: 96px;
-  height: 53px;
+  width: 114px;
+  height: 55px;
   position: absolute;
-  top: 53%;
+  top: 47%;
   left: 45%;
   transform: rotate(12deg);
 }
@@ -261,6 +277,15 @@ display: inline-block;
   position: absolute;
   top: 45%;
   left: 49%;
+}
+
+.sunglasses-img {
+  width: 206px;
+  height: 83px;
+  position: absolute;
+  top: 32%;
+  left: 44%;
+  transform: rotate(14deg);
 }
 
 .column3 {
@@ -297,17 +322,42 @@ display: inline-block;
 }
 
 .name-bear-input {
+<<<<<<< HEAD
   width: 20em;
   /* border: 2px solid black; */
+=======
+  color: #dcd3b2;
+  font-size: 1.2em;
+  text-align: center;
+  width: 15em;
+  height: 2em;
+  background-color: #ee836f;
+  box-shadow: 0px 4px 1px 0px #b84430;
+  border: 0;
+  border-radius: .5em;
 }
+
+input:focus {
+  outline: none;
+>>>>>>> master
+}
+
+::placeholder {
+  color: #dcd3b2;
+}
+
 .saved-outfit-box {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding: 0em .5em;
-  margin: .5em;
-  border: 2px solid black;
-  width: 40%;
-  height: 3em;
+  margin: 5%;
+  color: #43676B;
+  border: 2px solid #43676B;
+  box-shadow: 0px 4px 1px 0px rgba(30,102,107,1);
+  width: 60%;
+  height: 9%;
+  border-radius: 15px;
+  font-size: 1.4em;
 }
