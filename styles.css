@@ -298,7 +298,7 @@ display: inline-block;
 
 .name-bear-input {
   width: 20em;
-  border: 2px solid black;
+  /* border: 2px solid black; */
 }
 .saved-outfit-box {
   display: flex;

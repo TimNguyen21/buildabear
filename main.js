@@ -184,3 +184,26 @@ function changeBackground() {
   }
 }
 // Background selector --end--
+
+// save oufit button function
+var saveOutfitNameInput = document.querySelector('.name-bear-input');
+var saveOutfitButton = document.querySelector('.name-save-button');
+
+saveOutfitButton.disabled = true;
+
+saveOutfitNameInput.addEventListener('keyup', enableSaveButton);
+saveOutfitButton.addEventListener('click', saveOutfit);
+
+function enableSaveButton() {
+  if (saveOutfitNameInput.value == '') {
+    saveOutfitButton.disabled = true;
+  } else {
+    saveOutfitButton.disabled = false;
+  }
+}
+
+function saveOutfit() {
+  saveOutfitNameInput.value = "";
+  saveOutfitButton.disabled = true;
+  console.log('new code here');
+}
