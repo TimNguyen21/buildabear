@@ -98,16 +98,25 @@ function addHats(e){
 }
 
 // clothes selection -below-
-var dressImg = document.querySelector('dress-img');
+var dressImg = document.querySelector('.dress-img');
 var vestImg = document.querySelector('.vest-img');
 
+function removeAllClothes() {
+  dressImg.classList.add('hidden');
+  vestImg.classList.add('hidden');
+  console.log(1);
+}
 
 // add clothes
 function addClothes(e) {
   if (e.target.classList.contains('vest')) {
     outfit.addGarment(1, 'vest');
+    removeAllClothes();
+    dressImg.classList.remove('hidden');
   } else if (e.target.classList.contains('dress')) {
     outfit.addGarment(1, 'dress');
+    removeAllClothes();
+    vestImg.classList.remove('hidden');
   }
 }
 
