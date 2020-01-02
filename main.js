@@ -253,5 +253,29 @@ function createNewBearCard() {
   savedOutfitsSection.innerHTML += `<article class="saved-outfit-box" style="background-color:${chooseRandomColor()}"><span>${saveNewBearInput.value}</span><div class="close-x-icon">X</div></article>`
   saveNewBearInput.value = "";
   saveNewBearButton.disabled = true;
+  nakedBear();
 }
 // save oufit button function --end--
+
+// default naked bear --begin--
+function nakedBear() {
+  removeBackground();
+  removeAllClothes();
+  removeAllHats();
+  removeAllAccessories();
+  defaultGarments();
+}
+var backgroundButtons = document.querySelectorAll('.background-options-js');
+
+function defaultGarments() {
+  for (var i = 0; i < hatsButtons.length; i++) {
+    hatsButtons[i].classList.remove('pink-button-active');
+  }
+  for (var i = 0; i < accessoriesButtons.length; i++) {
+    accessoriesButtons[i].classList.remove('pink-button-active');
+  }
+  for (var i = 0; i < backgroundButtons.length; i++) {
+    backgroundButtons[i].classList.remove('blue-button-active');
+  }
+}
+// default naked bear --end--
