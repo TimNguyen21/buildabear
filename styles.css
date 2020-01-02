@@ -322,6 +322,10 @@ display: inline-block;
 }
 
 .name-bear-input {
+<<<<<<< HEAD
+  width: 20em;
+  /* border: 2px solid black; */
+=======
   color: #dcd3b2;
   font-size: 1.2em;
   text-align: center;
@@ -335,6 +339,7 @@ display: inline-block;
 
 input:focus {
   outline: none;
+>>>>>>> master
 }
 
 ::placeholder {

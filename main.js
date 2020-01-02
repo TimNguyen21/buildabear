@@ -202,11 +202,23 @@ function changeBackground() {
 }
 // Background selector --end--
 
-//Save a new outfit to the right hand comlumn
+// save oufit button function --begin--
 var saveNewBearInput = document.querySelector('.name-bear-input');
 var savedOutfitsSection = document.querySelector('.column3');
 var saveNewBearButton = document.querySelector('.name-save-button');
+
+saveNewBearButton.disabled = true;
+
+saveNewBearInput.addEventListener('keyup', enableSaveButton);
 saveNewBearButton.addEventListener('click', createNewBearCard);
+
+function enableSaveButton() {
+  if (saveNewBearInput.value == '') {
+    saveNewBearButton.disabled = true;
+  } else {
+    saveNewBearButton.disabled = false;
+  }
+}
 
 var randomColorBackground = ['#ee836f', '#dccb18', '#00a3af'];
 function chooseRandomColor() {
@@ -216,4 +228,7 @@ function chooseRandomColor() {
 
 function createNewBearCard() {
   savedOutfitsSection.innerHTML += `<article class="saved-outfit-box" style="background-color:${chooseRandomColor()}"><span>${saveNewBearInput.value}</span><div class="close-x-icon">X</div></article>`
+  saveNewBearInput.value = "";
+  saveNewBearButton.disabled = true;
 }
+// save oufit button function --end--
