@@ -12,7 +12,7 @@ var outfit = new Outfit(id, null, [], null);
 hats.addEventListener('click', hatSelectorEventHandler);
 clothes.addEventListener('click', clothesSelectorEventHandler);
 accessories.addEventListener('click', accessoriesSelectorEventHandler);
-background.addEventListener('click', addBackground);
+background.addEventListener('click', backgroundSelectorEventHandler);
 
 // Hats Event Listener -begin-
 function hatSelectorEventHandler(event) {
@@ -184,26 +184,36 @@ function addAccessories(e) {
 }
 
 // add background
-function addBackground(e) {
-  if (e.target.classList.contains('background-options-js')) {
-    if (e.target.classList.contains('blue-background')) {
-      outfit.background = 'blue';
-    } else if (e.target.classList.contains('park-background')) {
-      outfit.background = 'park';
-    } else if (e.target.classList.contains('beach-background')) {
-      outfit.background = 'beach';
-    } else if (e.target.classList.contains('space-background')) {
-      outfit.background = 'space';
-    } else if (e.target.classList.contains('yellow-background')) {
-      outfit.background = 'yellow';
-    } else if (e.target.classList.contains('heart-background')) {
-      outfit.background = 'heart';
-    }
+function backgroundSelectorEventHandler(e) {
+  changeBackgroundToActive(event);
+  if (e.target.classList.contains('blue-background')) {
+    outfit.background = 'blue';
+  } else if (e.target.classList.contains('park-background')) {
+    outfit.background = 'park';
+  } else if (e.target.classList.contains('beach-background')) {
+    outfit.background = 'beach';
+  } else if (e.target.classList.contains('space-background')) {
+    outfit.background = 'space';
+  } else if (e.target.classList.contains('yellow-background')) {
+    outfit.background = 'yellow';
+  } else if (e.target.classList.contains('heart-background')) {
+    outfit.background = 'heart';
+  }
+  changeBackground();
+}
 
-    changeBackground();
+function changeBackgroundToActive(event) {
+  removedBackgroundButtonActive();
+  if (event.target.classList.contains('background-button')) {
+    event.target.classList.add('blue-button-active');
   }
 }
 
+function removedBackgroundButtonActive(event) {
+  for (var i = 0; i < backgroundButtons.length; i++) {
+    backgroundButtons[i].classList.remove('blue-button-active');
+  }
+}
 // Background selector --start--
 function removeBackground() {
   mainBearSection.style.backgroundImage = 'none';
@@ -213,7 +223,7 @@ function removeBackground() {
 function changeBackground() {
   removeBackground();
   if (outfit.background == 'blue') {
-    mainBearSection.style.backgroundColor = '#00a3af';
+    mainBearSection.style.backgroundImage = "url('assets/blue.png')";
   } else if (outfit.background == 'park') {
     mainBearSection.style.backgroundImage = "url('assets/park.png')";
   } else if (outfit.background == 'beach') {
@@ -226,7 +236,6 @@ function changeBackground() {
     mainBearSection.style.backgroundImage = "url('assets/hearts.png')";
   }
 }
-
 // Background selector --end--
 
 // save oufit button function --begin--
@@ -255,42 +264,42 @@ function chooseRandomColor() {
 }
 
 function createNewBearCard() {
+  outfit.title = saveNewBearInput.value;
   savedOutfitsSection.innerHTML += `<article class="saved-outfit-box" style="background-color:${chooseRandomColor()}"><span>${saveNewBearInput.value}</span><div class="close-x-icon">X</div></article>`
   saveNewBearInput.value = '';
   saveNewBearButton.disabled = true;
   nakedBear();
 }
-//close-saved-bear-card-when-x-is-pressed
 
+//close-saved-bear-card-when-x-is-pressed
 function closeOutCard(event) {
   if (event.target.classList.contains('close-x-icon')) {
     // console.log('hit the delete btn');
     event.target.closest('.saved-outfit-box').remove();
   }
 }
-
 // save / delete oufit button function --end--
 // save oufit button function --end--
 
 // default naked bear --begin--
 function nakedBear() {
-  removeBackground();
   removeAllClothes();
   removeAllHats();
   removeAllAccessories();
-  defaultGarments();
+  defaultButtons();
+  removeBackground();
 }
-var backgroundButtons = document.querySelectorAll('.background-options-js');
 
-function defaultGarments() {
-  for (var i = 0; i < hatsButtons.length; i++) {
-    hatsButtons[i].classList.remove('pink-button-active');
+var backgroundButtons = document.querySelectorAll('.background-button');
+var pinkButtons = document.querySelectorAll('.pink-btn');
+var blueButtons = document.querySelectorAll('.blue-btn');
+
+function defaultButtons() {
+  for (var i = 0; i < pinkButtons.length; i++) {
+    pinkButtons[i].classList.remove('pink-button-active');
   }
-  for (var i = 0; i < accessoriesButtons.length; i++) {
-    accessoriesButtons[i].classList.remove('pink-button-active');
-  }
-  for (var i = 0; i < backgroundButtons.length; i++) {
-    backgroundButtons[i].classList.remove('blue-button-active');
+  for (var i = 0; i < blueButtons.length; i++) {
+    blueButtons[i].classList.remove('blue-button-active');
   }
 }
 // default naked bear --end--
