@@ -37,7 +37,6 @@ function removedHatButtonActive(event) {
     hatsButtons[i].classList.remove('pink-button-active');
   }
 }
-
 // Hats Event Listener -end-
 
 // Clothes Event Listener -begin-
@@ -88,7 +87,6 @@ function removedAccessoriesButtonActive(event) {
     accessoriesButtons[i].classList.remove('pink-button-active');
   }
 }
-
 // Accessories Event Listener -end-
 
 
@@ -159,7 +157,6 @@ function removeAllAccessories() {
   bowtieImg.classList.add('hidden');
   watchImg.classList.add('hidden');
   sunglassesImg.classList.add('hidden');
-
 }
 
 // add accessories
@@ -274,7 +271,6 @@ function createNewBearCard() {
 //close-saved-bear-card-when-x-is-pressed
 function closeOutCard(event) {
   if (event.target.classList.contains('close-x-icon')) {
-    // console.log('hit the delete btn');
     event.target.closest('.saved-outfit-box').remove();
   }
 }
