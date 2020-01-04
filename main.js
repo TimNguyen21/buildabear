@@ -138,11 +138,11 @@ function addClothes(e) {
   if (e.target.classList.contains('vest')) {
     outfit.addGarment(1, 'vest');
     removeAllClothes();
-    dressImg.classList.remove('hidden');
+    vestImg.classList.remove('hidden');
   } else if (e.target.classList.contains('dress')) {
     outfit.addGarment(1, 'dress');
     removeAllClothes();
-    vestImg.classList.remove('hidden');
+    dressImg.classList.remove('hidden');
   }
 }
 
