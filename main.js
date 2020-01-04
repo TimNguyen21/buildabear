@@ -182,7 +182,7 @@ function addAccessories(e) {
 
 // add background
 function backgroundSelectorEventHandler(e) {
-  changeBackgroundToActive(event);
+  // changeBackgroundToActive(event);
   if (e.target.classList.contains('blue-background')) {
     outfit.background = 'blue';
   } else if (e.target.classList.contains('park-background')) {
@@ -197,11 +197,15 @@ function backgroundSelectorEventHandler(e) {
     outfit.background = 'heart';
   }
   changeBackground();
+  changeBackgroundToggle(event);
 }
 
-function changeBackgroundToActive(event) {
-  removedBackgroundButtonActive();
-  if (event.target.classList.contains('background-button')) {
+function changeBackgroundToggle(event) {
+  if (event.target.classList.contains('blue-button-active')) {
+    removedBackgroundButtonActive();
+    mainBearSection.style.backgroundImage = 'none';
+  } else if (event.target.classList.contains('background-button')) {
+    removedBackgroundButtonActive();
     event.target.classList.add('blue-button-active');
   }
 }
@@ -212,13 +216,9 @@ function removedBackgroundButtonActive(event) {
   }
 }
 // Background selector --start--
-function removeBackground() {
-  mainBearSection.style.backgroundImage = 'none';
-  mainBearSection.style.backgroundColor = 'none';
-}
 
 function changeBackground() {
-  removeBackground();
+  mainBearSection.style.backgroundImage = 'none';
   if (outfit.background == 'blue') {
     mainBearSection.style.backgroundImage = "url('assets/blue.png')";
   } else if (outfit.background == 'park') {
@@ -228,7 +228,7 @@ function changeBackground() {
   } else if (outfit.background == 'space') {
     mainBearSection.style.backgroundImage = "url('assets/outerspace.png')";
   } else if (outfit.background == 'yellow') {
-    mainBearSection.style.backgroundColor = '#dccb18';
+    mainBearSection.style.backgroundImage = "url('assets/yellow.png')";
   } else if (outfit.background == 'heart') {
     mainBearSection.style.backgroundImage = "url('assets/hearts.png')";
   }
@@ -283,7 +283,7 @@ function nakedBear() {
   removeAllHats();
   removeAllAccessories();
   defaultButtons();
-  removeBackground();
+  mainBearSection.style.backgroundImage = 'none';
 }
 
 var backgroundButtons = document.querySelectorAll('.background-button');
