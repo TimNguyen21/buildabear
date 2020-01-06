@@ -321,8 +321,12 @@ display: inline-block;
   height: 100%;
 }
 
+.input-save-button {
+  display: flex;
+  align-items: center;
+}
+
 .name-bear-input {
-  width: 20em;
   color: #dcd3b2;
   font-size: 1.2em;
   text-align: center;
@@ -339,12 +343,33 @@ input:focus {
 }
 
 .name-save-button:disabled {
+  color: #dcd3b2;
+  font-size: 1.2em;
   background-color: #1E666B;
   box-shadow: 0px 4px 1px 0px #00a3af;
+  height: 2em;
+  width: 6em;
+  border-radius: 1em;
+  border-radius: .5em;
+  margin-left: 1em;
+  cursor: default;
 }
 
 .name-save-button {
-  
+  color: #dcd3b2;
+  font-size: 1.2em;
+  background-color: #ee836f;
+  box-shadow: 0px 4px 1px 0px #b84430;
+  height: 2em;
+  width: 6em;
+  border-radius: 1em;
+  border-radius: .5em;
+  margin-left: 1em;
+  cursor: grab;
+}
+
+.name-save-button:focus {
+  outline: none;
 }
 
 ::placeholder {
@@ -361,7 +386,7 @@ input:focus {
   color: #43676B;
   border: 2px solid #43676B;
   box-shadow: 0px 4px 1px 0px rgba(30,102,107,1);
-  width: 60%;
+  width: 90%;
   height: 9%;
   border-radius: 15px;
   font-size: 1.4em;
