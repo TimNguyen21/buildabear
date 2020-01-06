@@ -338,6 +338,15 @@ input:focus {
   outline: none;
 }
 
+.name-save-button:disabled {
+  background-color: #1E666B;
+  box-shadow: 0px 4px 1px 0px #00a3af;
+}
+
+.name-save-button {
+  
+}
+
 ::placeholder {
   color: #dcd3b2;
 }
