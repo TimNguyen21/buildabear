@@ -19,7 +19,7 @@ function hatSelectorEventHandler(event) {
   if (event.target.classList.contains('pink-button-active')) {
     removeAllHats();
     removedHatButtonActive();
-  } else {
+  } else if (event.target.classList.contains('hats-btn')) {
     changeHatButtonToActive(event);
     addHats(event);
   }
@@ -44,7 +44,7 @@ function clothesSelectorEventHandler(event) {
   if (event.target.classList.contains('blue-button-active')) {
     removeAllClothes();
     removedClothesButtonActive();
-  } else {
+  } else if (event.target.classList.contains('clothes-btn')) {
     changeClothesButtonToActive(event);
     addClothes(event);
   }
@@ -69,7 +69,7 @@ function accessoriesSelectorEventHandler(event) {
   if (event.target.classList.contains('pink-button-active')) {
     removeAllAccessories();
     removedAccessoriesButtonActive();
-  } else {
+  } else if (event.target.classList.contains('accessories-btn')) {
     changeAccessoriesButtonToActive(event);
     addAccessories(event);
   }
