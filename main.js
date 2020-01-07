@@ -110,6 +110,18 @@ function clothesSelectorEventHandler(event) {
   }
 }
 
+function addClothes(e) {
+  if (e.target.classList.contains('vest')) {
+    outfit.addGarment(1, 'vest');
+    removeAllClothes();
+    vestImg.classList.remove('hidden');
+  } else if (e.target.classList.contains('dress')) {
+    outfit.addGarment(1, 'dress');
+    removeAllClothes();
+    dressImg.classList.remove('hidden');
+  }
+}
+
 function changeClothesButtonToActive(event) {
   removedClothesButtonActive();
   if (event.target.classList.contains('clothes-btn')) {
@@ -123,9 +135,14 @@ function removedClothesButtonActive(event) {
   }
 }
 
-// Clothes -end-
+function removeAllClothes() {
+  dressImg.classList.add('hidden');
+  vestImg.classList.add('hidden');
+}
 
-// Accessories -begin-
+// CLOTHES -END-
+
+// ACCESSORIES -START-
 function accessoriesSelectorEventHandler(event) {
   if (event.target.classList.contains('pink-button-active')) {
     removeAllAccessories();
@@ -136,50 +153,6 @@ function accessoriesSelectorEventHandler(event) {
   }
 }
 
-function changeAccessoriesButtonToActive(event) {
-  removedAccessoriesButtonActive();
-  if (event.target.classList.contains('accessories-btn')) {
-    event.target.classList.add('pink-button-active');
-  }
-}
-
-function removedAccessoriesButtonActive(event) {
-  for (var i = 0; i < accessoriesButtons.length; i++) {
-    accessoriesButtons[i].classList.remove('pink-button-active');
-  }
-}
-
-// Accessories -end-
-
-// clothes selection -below-
-function removeAllClothes() {
-  dressImg.classList.add('hidden');
-  vestImg.classList.add('hidden');
-}
-
-// add clothes
-function addClothes(e) {
-  if (e.target.classList.contains('vest')) {
-    outfit.addGarment(1, 'vest');
-    removeAllClothes();
-    vestImg.classList.remove('hidden');
-  } else if (e.target.classList.contains('dress')) {
-    outfit.addGarment(1, 'dress');
-    removeAllClothes();
-    dressImg.classList.remove('hidden');
-  }
-}
-
-// accessories selection -below-
-
-function removeAllAccessories() {
-  necklaceImg.classList.add('hidden');
-  bowtieImg.classList.add('hidden');
-  watchImg.classList.add('hidden');
-  sunglassesImg.classList.add('hidden');
-}
-
-// add accessories
 function addAccessories(e) {
   if (e.target.classList.contains('necklace')) {
     removeAllAccessories();
@@ -200,9 +173,30 @@ function addAccessories(e) {
   }
 }
 
-// add background
+function changeAccessoriesButtonToActive(event) {
+  removedAccessoriesButtonActive();
+  if (event.target.classList.contains('accessories-btn')) {
+    event.target.classList.add('pink-button-active');
+  }
+}
+
+function removedAccessoriesButtonActive(event) {
+  for (var i = 0; i < accessoriesButtons.length; i++) {
+    accessoriesButtons[i].classList.remove('pink-button-active');
+  }
+}
+
+function removeAllAccessories() {
+  necklaceImg.classList.add('hidden');
+  bowtieImg.classList.add('hidden');
+  watchImg.classList.add('hidden');
+  sunglassesImg.classList.add('hidden');
+}
+
+// ACCESSORIES -END-
+
+// BACKGROUND -START-
 function backgroundSelectorEventHandler(e) {
-  // changeBackgroundToActive(event);
   if (e.target.classList.contains('blue-background')) {
     outfit.background = 'blue';
   } else if (e.target.classList.contains('park-background')) {
@@ -221,24 +215,6 @@ function backgroundSelectorEventHandler(e) {
   changeBackgroundToggle(event);
 }
 
-function changeBackgroundToggle(event) {
-  if (event.target.classList.contains('blue-button-active')) {
-    removedBackgroundButtonActive();
-    mainBearSection.style.backgroundImage = 'none';
-  } else if (event.target.classList.contains('background-button')) {
-    removedBackgroundButtonActive();
-    event.target.classList.add('blue-button-active');
-  }
-}
-
-function removedBackgroundButtonActive(event) {
-  for (var i = 0; i < backgroundButtons.length; i++) {
-    backgroundButtons[i].classList.remove('blue-button-active');
-  }
-}
-
-// Background selector --start--
-
 function changeBackground(background) {
   mainBearSection.style.backgroundImage = 'none';
   if (background == 'blue') {
@@ -256,7 +232,23 @@ function changeBackground(background) {
   }
 }
 
-// Background selector --end--
+function changeBackgroundToggle(event) {
+  if (event.target.classList.contains('blue-button-active')) {
+    removedBackgroundButtonActive();
+    mainBearSection.style.backgroundImage = 'none';
+  } else if (event.target.classList.contains('background-button')) {
+    removedBackgroundButtonActive();
+    event.target.classList.add('blue-button-active');
+  }
+}
+
+function removedBackgroundButtonActive(event) {
+  for (var i = 0; i < backgroundButtons.length; i++) {
+    backgroundButtons[i].classList.remove('blue-button-active');
+  }
+}
+
+// BACKGROUND -END-
 
 // save oufit button function --begin--
 function enableSaveButton() {
@@ -285,7 +277,6 @@ function saveBearOutfit() {
   localStorage.setItem(bearCardID, JSON.stringify(outfit));
 }
 
-// var currentOutfit = '';
 function restoreOutfitCards() {
   for (var i = 0; i < localStorage.length; i++) {
     var currentOutfit = JSON.parse(localStorage.getItem(localStorage.key(i)));
