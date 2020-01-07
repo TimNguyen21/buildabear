@@ -13,6 +13,7 @@ hats.addEventListener('click', hatSelectorEventHandler);
 clothes.addEventListener('click', clothesSelectorEventHandler);
 accessories.addEventListener('click', accessoriesSelectorEventHandler);
 background.addEventListener('click', backgroundSelectorEventHandler);
+window.addEventListener('load', restoreOutfitCards);
 
 // Hats Event Listener -begin-
 function hatSelectorEventHandler(event) {
@@ -262,10 +263,25 @@ function chooseRandomColor() {
 
 function createNewBearCard() {
   outfit.title = saveNewBearInput.value;
-  savedOutfitsSection.innerHTML += `<article class="saved-outfit-box" style="background-color:${chooseRandomColor()}"><span>${saveNewBearInput.value}</span><div class="close-x-icon">X</div></article>`
+  savedOutfitsSection.innerHTML += `<article id="${outfit.id}"class="saved-outfit-box" style="background-color:${chooseRandomColor()}"><span>${saveNewBearInput.value}</span><div class="close-x-icon">X</div></article>`
   saveNewBearInput.value = '';
   saveNewBearButton.disabled = true;
   nakedBear();
+}
+
+function saveBearOutfit() {
+  var bearCardID = outfit.id;
+  localStorage.setItem(bearCardID, JSON.stringify(outfit))
+  console.log(localStorage.getItem(outfit.id));
+}
+
+function restoreOutfitCards() {
+  for(var i = 0; i < localStorage.length; i++) {
+  var currentOutfit = JSON.parse(localStorage.getItem(localStorage.key(i)));
+  var title = currentOutfit.title;
+  var outfitCard = `<article id="${outfit.id}"class="saved-outfit-box" style="background-color:${chooseRandomColor()}"><span>${title}</span><div class="close-x-icon">X</div></article>`;
+   savedOutfitsSection.insertAdjacentHTML('beforeend', outfitCard);
+  }
 }
 
 //close-saved-bear-card-when-x-is-pressed
@@ -279,10 +295,12 @@ function closeOutCard(event) {
 
 // default naked bear --begin--
 function nakedBear() {
+  saveBearOutfit()
   removeAllClothes();
   removeAllHats();
   removeAllAccessories();
   defaultButtons();
+  defaultOutfit();
   mainBearSection.style.backgroundImage = 'none';
 }
 
@@ -299,3 +317,11 @@ function defaultButtons() {
   }
 }
 // default naked bear --end--
+
+function defaultOutfit() {
+  id = Date.now();
+  outfit.id = id;
+  outfit.name = null;
+  outfit.garments = []
+  outfit.background = null;
+}
