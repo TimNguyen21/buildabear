@@ -276,20 +276,27 @@ function saveBearOutfit() {
 }
 
 function restoreOutfitCards() {
-  for(var i = 0; i < localStorage.length; i++) {
-  var currentOutfit = JSON.parse(localStorage.getItem(localStorage.key(i)));
-  var title = currentOutfit.title;
-  var outfitCard = `<article id="${outfit.id}"class="saved-outfit-box" style="background-color:${chooseRandomColor()}"><span>${title}</span><div class="close-x-icon">X</div></article>`;
-   savedOutfitsSection.insertAdjacentHTML('beforeend', outfitCard);
+  for (var i = 0; i < localStorage.length; i++) {
+    var currentOutfit = JSON.parse(localStorage.getItem(localStorage.key(i)));
+    var title = currentOutfit.title;
+    var outfitCard = `<article id="${outfit.id}"class="saved-outfit-box" style="background-color:${chooseRandomColor()}"><span>${title}</span><div class="close-x-icon">X</div></article>`;
+    savedOutfitsSection.insertAdjacentHTML('beforeend', outfitCard);
   }
 }
 
 //close-saved-bear-card-when-x-is-pressed
 function closeOutCard(event) {
   if (event.target.classList.contains('close-x-icon')) {
-    event.target.closest('.saved-outfit-box').remove();
+    // event.target.closest('.saved-outfit-box').remove();
+    for (var i = 0; i < localStorage.length; i++) {
+      var currentOutfit = JSON.parse(localStorage.getItem(localStorage.key(i)));
+      // document.getElementById(currentOutfit.id).remove();
+      event.target.closest('.saved-outfit-box').remove();
+      localStorage.removeItem(currentOutfit.id);
+    }
   }
 }
+
 // save / delete oufit button function --end--
 // save oufit button function --end--
 
