@@ -199,8 +199,7 @@ function backgroundSelectorEventHandler(e) {
   } else if (e.target.classList.contains('heart-background')) {
     outfit.background = 'heart';
   }
-
-  changeBackground();
+  changeBackground(outfit.background);
   changeBackgroundToggle(event);
 }
 
@@ -222,19 +221,19 @@ function removedBackgroundButtonActive(event) {
 
 // Background selector --start--
 
-function changeBackground() {
+function changeBackground(background) {
   mainBearSection.style.backgroundImage = 'none';
-  if (outfit.background == 'blue') {
+  if (background == 'blue') {
     mainBearSection.style.backgroundImage = "url('assets/blue.png')";
-  } else if (outfit.background == 'park') {
+  } else if (background == 'park') {
     mainBearSection.style.backgroundImage = "url('assets/park.png')";
-  } else if (outfit.background == 'beach') {
+  } else if (background == 'beach') {
     mainBearSection.style.backgroundImage = "url('assets/beach.png')";
-  } else if (outfit.background == 'space') {
+  } else if (background == 'space') {
     mainBearSection.style.backgroundImage = "url('assets/outerspace.png')";
-  } else if (outfit.background == 'yellow') {
+  } else if (background == 'yellow') {
     mainBearSection.style.backgroundImage = "url('assets/yellow.png')";
-  } else if (outfit.background == 'heart') {
+  } else if (background == 'heart') {
     mainBearSection.style.backgroundImage = "url('assets/hearts.png')";
   }
 }
@@ -279,6 +278,7 @@ function saveBearOutfit() {
   localStorage.setItem(bearCardID, JSON.stringify(outfit));
 }
 
+// var currentOutfit = '';
 function restoreOutfitCards() {
   for (var i = 0; i < localStorage.length; i++) {
     var currentOutfit = JSON.parse(localStorage.getItem(localStorage.key(i)));
@@ -290,22 +290,51 @@ function restoreOutfitCards() {
 
 //close-saved-bear-card-when-x-is-pressed
 function closeOutCard(event) {
-  // debugger;
-  if (event.target.classList.contains('close-x-icon')) {
-    for (var i = 0; i < localStorage.length; i++) {
-      var currentOutfit = JSON.parse(localStorage.getItem(localStorage.key(i)));
-      if (event.target.parentElement.dataset.id == currentOutfit.id) {
-        localStorage.removeItem(currentOutfit.id);
-      }
-
-      event.target.closest('.saved-outfit-box').remove();
+  if (event.target.classList.contains('close-x-icon'))
+    for(var i = 0; i < localStorage.length; i++) {
+    var currentOutfit = JSON.parse(localStorage.getItem(localStorage.key(i)));
+    if (event.target.parentElement.dataset.id == currentOutfit.id) {
+      localStorage.removeItem(currentOutfit.id);
     }
+    event.target.closest('.saved-outfit-box').remove();
   }
 }
 
 // save / delete oufit button function --end--
 // save oufit button function --end--
+savedOutfitsSection.addEventListener('click', editBearCard);
 
+function editBearCard() {
+  if (event.target.classList.contains('saved-outfit-box')) {
+    saveNewBearButton.disabled = false;
+    var currentOutfit = JSON.parse(localStorage.getItem(event.target.dataset.id));
+    saveNewBearInput.value = currentOutfit.title;
+    addStuff(currentOutfit.garments[0], currentOutfit.garments[1], currentOutfit.garments[2], currentOutfit.background);
+    }
+}
+function addStuff(hat, cloth, accessory, background) {
+  addHHats(hat);
+  console.log(cloth);
+  console.log(accessory);
+  changeBackground(background);
+}
+
+function addHHats(hat) {
+  if (hat == 'top-hat') {
+    removeAllHats();
+    topHatImg.classList.remove('hidden');
+  } else if (hat == 'sun-hat') {
+    removeAllHats();
+    sunHatImg.classList.remove('hidden');
+  } else if (hat == 'bow') {
+    removeAllHats();
+    bowHatImg.classList.remove('hidden');
+  } else if (hat == 'crown') {
+    removeAllHats();
+    crownHatImg.classList.remove('hidden');
+  }
+
+}
 // default naked bear --begin--
 function nakedBear() {
   saveBearOutfit();
