@@ -260,6 +260,9 @@ function enableSaveButton() {
   }
 }
 
+
+
+
 var randomColorBackground = ['#ee836f', '#dccb18', '#00a3af'];
 function chooseRandomColor() {
   var i = Math.floor(Math.random() * 3);
@@ -319,7 +322,7 @@ function editBearCard() {
 function addStuff(hat, clothes, accessory, background) {
   reloadHats(hat);
   reloadClothes(clothes);
-  console.log(accessory);
+  reloadAccessory(accessory);
   changeBackground(background);
 }
 
@@ -347,6 +350,21 @@ function reloadClothes(clothes) {
     removeAllClothes();
     dressImg.classList.remove('hidden');
   }
+}
+
+function reloadAccessory(accessory) {
+  if (accessory == 'necklace') {
+    removeAllAccessories();
+    necklaceImg.classList.remove('hidden');
+  } else if (accessory == 'bowtie') {
+    removeAllAccessories();
+    bowtieImg.classList.remove('hidden');
+  } else if (accessory == 'watch') {
+    removeAllAccessories();
+    watchImg.classList.remove('hidden');
+  } else if (accessory == 'sunglasses');
+  removeAllAccessories();
+  sunglasses.classList.remove('hidden');
 }
 
 // default naked bear --begin--
