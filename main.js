@@ -263,7 +263,7 @@ function chooseRandomColor() {
 
 function createNewBearCard() {
   outfit.title = saveNewBearInput.value;
-  savedOutfitsSection.innerHTML += `<article id="${outfit.id}"class="saved-outfit-box" style="background-color:${chooseRandomColor()}"><span>${saveNewBearInput.value}</span><div class="close-x-icon">X</div></article>`
+  savedOutfitsSection.innerHTML += `<article data-id="${outfit.id}"class="saved-outfit-box" style="background-color:${chooseRandomColor()}"><span data-id="${outfit.id}">${saveNewBearInput.value}</span><div class="close-x-icon">X</div></article>`
   saveNewBearInput.value = '';
   saveNewBearButton.disabled = true;
   nakedBear();
@@ -279,20 +279,24 @@ function restoreOutfitCards() {
   for (var i = 0; i < localStorage.length; i++) {
     var currentOutfit = JSON.parse(localStorage.getItem(localStorage.key(i)));
     var title = currentOutfit.title;
-    var outfitCard = `<article id="${outfit.id}"class="saved-outfit-box" style="background-color:${chooseRandomColor()}"><span>${title}</span><div class="close-x-icon">X</div></article>`;
+    var outfitCard = `<article data-id="${currentOutfit.id}" class="saved-outfit-box" style="background-color:${chooseRandomColor()}"><span data-id="${currentOutfit.id}">${title}</span><div class="close-x-icon">X</div></article>`;
     savedOutfitsSection.insertAdjacentHTML('beforeend', outfitCard);
   }
 }
 
 //close-saved-bear-card-when-x-is-pressed
 function closeOutCard(event) {
+  // debugger;
   if (event.target.classList.contains('close-x-icon')) {
+    
     // event.target.closest('.saved-outfit-box').remove();
-    for (var i = 0; i < localStorage.length; i++) {
-      var currentOutfit = JSON.parse(localStorage.getItem(localStorage.key(i)));
+    // for (var i = 0; i < localStorage.length; i++) {
+    //   var currentOutfit = JSON.parse(localStorage.getItem(localStorage.key(i)));
+    //   console.log(currentOutfit.id);
+      //need to loop through items in saved outfit array to see if the id
       // document.getElementById(currentOutfit.id).remove();
-      event.target.closest('.saved-outfit-box').remove();
-      localStorage.removeItem(currentOutfit.id);
+      // event.target.closest('.saved-outfit-box').remove();
+      // localStorage.removeItem(currentOutfit.id);
     }
   }
 }
