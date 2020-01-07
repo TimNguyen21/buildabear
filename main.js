@@ -362,11 +362,11 @@ function reloadAccessory(accessory) {
   } else if (accessory == 'watch') {
     removeAllAccessories();
     watchImg.classList.remove('hidden');
-  } else if (accessory == 'sunglasses');
-  removeAllAccessories();
-  sunglasses.classList.remove('hidden');
+  } else if (accessory == 'sunglasses') {
+    removeAllAccessories();
+    sunglassesImg.classList.remove('hidden');
+  } 
 }
-
 // default naked bear --begin--
 function nakedBear() {
   saveBearOutfit();
