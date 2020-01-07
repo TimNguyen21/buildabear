@@ -38,6 +38,7 @@ function removedHatButtonActive(event) {
     hatsButtons[i].classList.remove('pink-button-active');
   }
 }
+
 // Hats Event Listener -end-
 
 // Clothes Event Listener -begin-
@@ -63,6 +64,7 @@ function removedClothesButtonActive(event) {
     clothesButtons[i].classList.remove('blue-button-active');
   }
 }
+
 // Clothes Event Listener -end-
 
 // Accessories Event Listener -begin-
@@ -88,8 +90,8 @@ function removedAccessoriesButtonActive(event) {
     accessoriesButtons[i].classList.remove('pink-button-active');
   }
 }
-// Accessories Event Listener -end-
 
+// Accessories Event Listener -end-
 
 // hats selction -below-
 var topHatImg = document.querySelector('.top-hat-img');
@@ -197,6 +199,7 @@ function backgroundSelectorEventHandler(e) {
   } else if (e.target.classList.contains('heart-background')) {
     outfit.background = 'heart';
   }
+
   changeBackground();
   changeBackgroundToggle(event);
 }
@@ -216,6 +219,7 @@ function removedBackgroundButtonActive(event) {
     backgroundButtons[i].classList.remove('blue-button-active');
   }
 }
+
 // Background selector --start--
 
 function changeBackground() {
@@ -234,6 +238,7 @@ function changeBackground() {
     mainBearSection.style.backgroundImage = "url('assets/hearts.png')";
   }
 }
+
 // Background selector --end--
 
 // save oufit button function --begin--
@@ -271,8 +276,7 @@ function createNewBearCard() {
 
 function saveBearOutfit() {
   var bearCardID = outfit.id;
-  localStorage.setItem(bearCardID, JSON.stringify(outfit))
-  console.log(localStorage.getItem(outfit.id));
+  localStorage.setItem(bearCardID, JSON.stringify(outfit));
 }
 
 function restoreOutfitCards() {
@@ -288,15 +292,13 @@ function restoreOutfitCards() {
 function closeOutCard(event) {
   // debugger;
   if (event.target.classList.contains('close-x-icon')) {
-    
-    // event.target.closest('.saved-outfit-box').remove();
-    // for (var i = 0; i < localStorage.length; i++) {
-    //   var currentOutfit = JSON.parse(localStorage.getItem(localStorage.key(i)));
-    //   console.log(currentOutfit.id);
-      //need to loop through items in saved outfit array to see if the id
-      // document.getElementById(currentOutfit.id).remove();
-      // event.target.closest('.saved-outfit-box').remove();
-      // localStorage.removeItem(currentOutfit.id);
+    for (var i = 0; i < localStorage.length; i++) {
+      var currentOutfit = JSON.parse(localStorage.getItem(localStorage.key(i)));
+      if (event.target.parentElement.dataset.id == currentOutfit.id) {
+        localStorage.removeItem(currentOutfit.id);
+      }
+
+      event.target.closest('.saved-outfit-box').remove();
     }
   }
 }
@@ -306,7 +308,7 @@ function closeOutCard(event) {
 
 // default naked bear --begin--
 function nakedBear() {
-  saveBearOutfit()
+  saveBearOutfit();
   removeAllClothes();
   removeAllHats();
   removeAllAccessories();
@@ -323,16 +325,18 @@ function defaultButtons() {
   for (var i = 0; i < pinkButtons.length; i++) {
     pinkButtons[i].classList.remove('pink-button-active');
   }
+
   for (var i = 0; i < blueButtons.length; i++) {
     blueButtons[i].classList.remove('blue-button-active');
   }
 }
+
 // default naked bear --end--
 
 function defaultOutfit() {
   id = Date.now();
   outfit.id = id;
   outfit.name = null;
-  outfit.garments = []
+  outfit.garments = [];
   outfit.background = null;
 }
