@@ -268,6 +268,12 @@ function createNewBearCard() {
   nakedBear();
 }
 
+function saveBearOutfit() {
+  var bearCardID = outfit.id;
+  localStorage.setItem(bearCardID, JSON.stringify(outfit))
+  console.log(localStorage.getItem("outfit.id"));
+}
+
 //close-saved-bear-card-when-x-is-pressed
 function closeOutCard(event) {
   if (event.target.classList.contains('close-x-icon')) {
@@ -279,10 +285,12 @@ function closeOutCard(event) {
 
 // default naked bear --begin--
 function nakedBear() {
+  saveBearOutfit()
   removeAllClothes();
   removeAllHats();
   removeAllAccessories();
   defaultButtons();
+  defaultOutfit();
   mainBearSection.style.backgroundImage = 'none';
 }
 
@@ -299,3 +307,11 @@ function defaultButtons() {
   }
 }
 // default naked bear --end--
+
+function defaultOutfit() {
+  id = Date.now();
+  outfit.id = id;
+  outfit.name = null;
+  outfit.garments = []
+  outfit.background = null;
+}
