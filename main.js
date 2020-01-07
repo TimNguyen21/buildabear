@@ -41,12 +41,12 @@ hats.addEventListener('click', hatSelectorEventHandler);
 clothes.addEventListener('click', clothesSelectorEventHandler);
 accessories.addEventListener('click', accessoriesSelectorEventHandler);
 background.addEventListener('click', backgroundSelectorEventHandler);
-
 saveNewBearInput.addEventListener('keyup', enableSaveButton);
 saveNewBearButton.addEventListener('click', createNewBearCard);
 savedOutfitsSection.addEventListener('click', closeOutCard);
+savedOutfitsSection.addEventListener('click', editBearCard);
 
-// Hats Event Listener -begin-
+//HATS -START-
 function hatSelectorEventHandler(event) {
   if (event.target.classList.contains('pink-button-active')) {
     removeAllHats();
@@ -54,6 +54,26 @@ function hatSelectorEventHandler(event) {
   } else if (event.target.classList.contains('hats-btn')) {
     changeHatButtonToActive(event);
     addHats(event);
+  }
+}
+
+function addHats(e) {
+  if (e.target.classList.contains('top-hat')) {
+    removeAllHats();
+    outfit.addGarment(0, 'top-hat');
+    topHatImg.classList.remove('hidden');
+  } else if (e.target.classList.contains('sun-hat')) {
+    removeAllHats();
+    outfit.addGarment(0, 'sun-hat');
+    sunHatImg.classList.remove('hidden');
+  } else if (e.target.classList.contains('bow')) {
+    removeAllHats();
+    outfit.addGarment(0, 'bow');
+    bowHatImg.classList.remove('hidden');
+  } else if (e.target.classList.contains('crown')) {
+    removeAllHats();
+    outfit.addGarment(0, 'crown');
+    crownHatImg.classList.remove('hidden');
   }
 }
 
@@ -70,7 +90,16 @@ function removedHatButtonActive(event) {
   }
 }
 
-// Clothes -begin-
+function removeAllHats() {
+  topHatImg.classList.add('hidden');
+  sunHatImg.classList.add('hidden');
+  bowHatImg.classList.add('hidden');
+  crownHatImg.classList.add('hidden');
+}
+
+// HATS -END-
+
+// CLOTHES -START-
 function clothesSelectorEventHandler(event) {
   if (event.target.classList.contains('blue-button-active')) {
     removeAllClothes();
@@ -121,36 +150,6 @@ function removedAccessoriesButtonActive(event) {
 }
 
 // Accessories -end-
-
-// hats selection -start-
-function removeAllHats() {
-  topHatImg.classList.add('hidden');
-  sunHatImg.classList.add('hidden');
-  bowHatImg.classList.add('hidden');
-  crownHatImg.classList.add('hidden');
-}
-
-function addHats(e) {
-  if (e.target.classList.contains('top-hat')) {
-    removeAllHats();
-    outfit.addGarment(0, 'top-hat');
-    topHatImg.classList.remove('hidden');
-  } else if (e.target.classList.contains('sun-hat')) {
-    removeAllHats();
-    outfit.addGarment(0, 'sun-hat');
-    sunHatImg.classList.remove('hidden');
-  } else if (e.target.classList.contains('bow')) {
-    removeAllHats();
-    outfit.addGarment(0, 'bow');
-    bowHatImg.classList.remove('hidden');
-  } else if (e.target.classList.contains('crown')) {
-    removeAllHats();
-    outfit.addGarment(0, 'crown');
-    crownHatImg.classList.remove('hidden');
-  }
-}
-
-//hats selection -end-
 
 // clothes selection -below-
 function removeAllClothes() {
@@ -260,7 +259,6 @@ function changeBackground(background) {
 // Background selector --end--
 
 // save oufit button function --begin--
-
 function enableSaveButton() {
   if (saveNewBearInput.value == '') {
     saveNewBearButton.disabled = true;
@@ -312,7 +310,6 @@ function closeOutCard(event) {
 
 // save / delete oufit button function --end--
 // save oufit button function --end--
-savedOutfitsSection.addEventListener('click', editBearCard);
 
 function editBearCard() {
   if (event.target.classList.contains('saved-outfit-box')) {
