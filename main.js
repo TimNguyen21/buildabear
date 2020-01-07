@@ -38,6 +38,7 @@ function removedHatButtonActive(event) {
     hatsButtons[i].classList.remove('pink-button-active');
   }
 }
+
 // Hats Event Listener -end-
 
 // Clothes Event Listener -begin-
@@ -63,6 +64,7 @@ function removedClothesButtonActive(event) {
     clothesButtons[i].classList.remove('blue-button-active');
   }
 }
+
 // Clothes Event Listener -end-
 
 // Accessories Event Listener -begin-
@@ -88,8 +90,8 @@ function removedAccessoriesButtonActive(event) {
     accessoriesButtons[i].classList.remove('pink-button-active');
   }
 }
-// Accessories Event Listener -end-
 
+// Accessories Event Listener -end-
 
 // hats selction -below-
 var topHatImg = document.querySelector('.top-hat-img');
@@ -216,6 +218,7 @@ function removedBackgroundButtonActive(event) {
     backgroundButtons[i].classList.remove('blue-button-active');
   }
 }
+
 // Background selector --start--
 
 function changeBackground(background) {
@@ -234,6 +237,7 @@ function changeBackground(background) {
     mainBearSection.style.backgroundImage = "url('assets/hearts.png')";
   }
 }
+
 // Background selector --end--
 
 // save oufit button function --begin--
@@ -271,17 +275,16 @@ function createNewBearCard() {
 
 function saveBearOutfit() {
   var bearCardID = outfit.id;
-  localStorage.setItem(bearCardID, JSON.stringify(outfit))
-  console.log(localStorage.getItem(outfit.id));
+  localStorage.setItem(bearCardID, JSON.stringify(outfit));
 }
 
 // var currentOutfit = '';
 function restoreOutfitCards() {
-  for(var i = 0; i < localStorage.length; i++) {
-  var currentOutfit = JSON.parse(localStorage.getItem(localStorage.key(i)));
-  var title = currentOutfit.title;
-  var outfitCard = `<article data-id="${currentOutfit.id}"class="saved-outfit-box" style="background-color:${chooseRandomColor()}"><span data-id="${currentOutfit.id}">${title}</span><div class="close-x-icon">X</div></article>`;
-   savedOutfitsSection.insertAdjacentHTML('beforeend', outfitCard);
+  for (var i = 0; i < localStorage.length; i++) {
+    var currentOutfit = JSON.parse(localStorage.getItem(localStorage.key(i)));
+    var title = currentOutfit.title;
+    var outfitCard = `<article data-id="${currentOutfit.id}" class="saved-outfit-box" style="background-color:${chooseRandomColor()}"><span data-id="${currentOutfit.id}">${title}</span><div class="close-x-icon">X</div></article>`;
+    savedOutfitsSection.insertAdjacentHTML('beforeend', outfitCard);
   }
 }
 
@@ -334,7 +337,7 @@ function addHHats(hat) {
 }
 // default naked bear --begin--
 function nakedBear() {
-  saveBearOutfit()
+  saveBearOutfit();
   removeAllClothes();
   removeAllHats();
   removeAllAccessories();
@@ -351,16 +354,18 @@ function defaultButtons() {
   for (var i = 0; i < pinkButtons.length; i++) {
     pinkButtons[i].classList.remove('pink-button-active');
   }
+
   for (var i = 0; i < blueButtons.length; i++) {
     blueButtons[i].classList.remove('blue-button-active');
   }
 }
+
 // default naked bear --end--
 
 function defaultOutfit() {
   id = Date.now();
   outfit.id = id;
   outfit.name = null;
-  outfit.garments = []
+  outfit.garments = [];
   outfit.background = null;
 }
