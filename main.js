@@ -199,6 +199,7 @@ function backgroundSelectorEventHandler(e) {
   } else if (e.target.classList.contains('heart-background')) {
     outfit.background = 'heart';
   }
+
   changeBackground(outfit.background);
   changeBackgroundToggle(event);
 }
@@ -291,11 +292,12 @@ function restoreOutfitCards() {
 //close-saved-bear-card-when-x-is-pressed
 function closeOutCard(event) {
   if (event.target.classList.contains('close-x-icon'))
-    for(var i = 0; i < localStorage.length; i++) {
+    for (var i = 0; i < localStorage.length; i++) {
     var currentOutfit = JSON.parse(localStorage.getItem(localStorage.key(i)));
     if (event.target.parentElement.dataset.id == currentOutfit.id) {
       localStorage.removeItem(currentOutfit.id);
     }
+
     event.target.closest('.saved-outfit-box').remove();
   }
 }
@@ -309,17 +311,19 @@ function editBearCard() {
     saveNewBearButton.disabled = false;
     var currentOutfit = JSON.parse(localStorage.getItem(event.target.dataset.id));
     saveNewBearInput.value = currentOutfit.title;
-    addStuff(currentOutfit.garments[0], currentOutfit.garments[1], currentOutfit.garments[2], currentOutfit.background);
-    }
+    addStuff(currentOutfit.garments[0], currentOutfit.garments[1],
+    currentOutfit.garments[2], currentOutfit.background);
+  }
 }
-function addStuff(hat, cloth, accessory, background) {
-  addHHats(hat);
-  console.log(cloth);
+
+function addStuff(hat, clothes, accessory, background) {
+  reloadHats(hat);
+  reloadClothes(clothes);
   console.log(accessory);
   changeBackground(background);
 }
 
-function addHHats(hat) {
+function reloadHats(hat) {
   if (hat == 'top-hat') {
     removeAllHats();
     topHatImg.classList.remove('hidden');
@@ -333,8 +337,18 @@ function addHHats(hat) {
     removeAllHats();
     crownHatImg.classList.remove('hidden');
   }
-
 }
+
+function reloadClothes(clothes) {
+  if (clothes == 'vest') {
+    removeAllClothes();
+    vestImg.classList.remove('hidden');
+  } else if (clothes == 'dress') {
+    removeAllClothes();
+    dressImg.classList.remove('hidden');
+  }
+}
+
 // default naked bear --begin--
 function nakedBear() {
   saveBearOutfit();
