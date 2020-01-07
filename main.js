@@ -1,19 +1,50 @@
-var mainBearSection = document.querySelector('.main-bear');
-var hats = document.querySelector('.hats-selection');
-var hatsButtons = document.querySelectorAll('.hats-btn');
-var accessoriesButtons = document.querySelectorAll('.accessories-btn');
-var clothesButtons = document.querySelectorAll('.clothes-btn');
-var clothes = document.querySelector('.clothes-selection');
-var accessories = document.querySelector('.accessories-selection');
-var background = document.querySelector('.background-selection');
 var id = Date.now(id);
 var outfit = new Outfit(id, null, [], null);
 
+//Global Section Variables:
+var mainBearSection = document.querySelector('.main-bear');
+var saveNewBearInput = document.querySelector('.name-bear-input');
+var savedOutfitsSection = document.querySelector('.column3');
+var background = document.querySelector('.background-selection');
+var hats = document.querySelector('.hats-selection');
+var clothes = document.querySelector('.clothes-selection');
+var accessories = document.querySelector('.accessories-selection');
+
+//Buttons variables:
+var hatsButtons = document.querySelectorAll('.hats-btn');
+var accessoriesButtons = document.querySelectorAll('.accessories-btn');
+var clothesButtons = document.querySelectorAll('.clothes-btn');
+var backgroundButtons = document.querySelectorAll('.background-button');
+var pinkButtons = document.querySelectorAll('.pink-btn');
+var blueButtons = document.querySelectorAll('.blue-btn');
+var saveNewBearButton = document.querySelector('.name-save-button');
+saveNewBearButton.disabled = true;
+
+//Images variables:
+var topHatImg = document.querySelector('.top-hat-img');
+var sunHatImg = document.querySelector('.sun-hat-img');
+var bowHatImg = document.querySelector('.bow-hat-img');
+var crownHatImg = document.querySelector('.crown-hat-img');
+var dressImg = document.querySelector('.dress-img');
+var vestImg = document.querySelector('.vest-img');
+var necklaceImg = document.querySelector('.necklace-img');
+var bowtieImg = document.querySelector('.bowtie-img');
+var watchImg = document.querySelector('.watch-img');
+var sunglassesImg = document.querySelector('.sunglasses-img');
+
+//Extension Variables:
+var randomColorBackground = ['#ee836f', '#dccb18', '#00a3af'];
+
+//Event Listeners:
+window.addEventListener('load', restoreOutfitCards);
 hats.addEventListener('click', hatSelectorEventHandler);
 clothes.addEventListener('click', clothesSelectorEventHandler);
 accessories.addEventListener('click', accessoriesSelectorEventHandler);
 background.addEventListener('click', backgroundSelectorEventHandler);
-window.addEventListener('load', restoreOutfitCards);
+
+saveNewBearInput.addEventListener('keyup', enableSaveButton);
+saveNewBearButton.addEventListener('click', createNewBearCard);
+savedOutfitsSection.addEventListener('click', closeOutCard);
 
 // Hats Event Listener -begin-
 function hatSelectorEventHandler(event) {
@@ -39,9 +70,7 @@ function removedHatButtonActive(event) {
   }
 }
 
-// Hats Event Listener -end-
-
-// Clothes Event Listener -begin-
+// Clothes -begin-
 function clothesSelectorEventHandler(event) {
   if (event.target.classList.contains('blue-button-active')) {
     removeAllClothes();
@@ -65,9 +94,9 @@ function removedClothesButtonActive(event) {
   }
 }
 
-// Clothes Event Listener -end-
+// Clothes -end-
 
-// Accessories Event Listener -begin-
+// Accessories -begin-
 function accessoriesSelectorEventHandler(event) {
   if (event.target.classList.contains('pink-button-active')) {
     removeAllAccessories();
@@ -91,14 +120,9 @@ function removedAccessoriesButtonActive(event) {
   }
 }
 
-// Accessories Event Listener -end-
+// Accessories -end-
 
-// hats selction -below-
-var topHatImg = document.querySelector('.top-hat-img');
-var sunHatImg = document.querySelector('.sun-hat-img');
-var bowHatImg = document.querySelector('.bow-hat-img');
-var crownHatImg = document.querySelector('.crown-hat-img');
-
+// hats selection -start-
 function removeAllHats() {
   topHatImg.classList.add('hidden');
   sunHatImg.classList.add('hidden');
@@ -106,7 +130,6 @@ function removeAllHats() {
   crownHatImg.classList.add('hidden');
 }
 
-// add hats
 function addHats(e) {
   if (e.target.classList.contains('top-hat')) {
     removeAllHats();
@@ -127,10 +150,9 @@ function addHats(e) {
   }
 }
 
-// clothes selection -below-
-var dressImg = document.querySelector('.dress-img');
-var vestImg = document.querySelector('.vest-img');
+//hats selection -end-
 
+// clothes selection -below-
 function removeAllClothes() {
   dressImg.classList.add('hidden');
   vestImg.classList.add('hidden');
@@ -150,10 +172,6 @@ function addClothes(e) {
 }
 
 // accessories selection -below-
-var necklaceImg = document.querySelector('.necklace-img');
-var bowtieImg = document.querySelector('.bowtie-img');
-var watchImg = document.querySelector('.watch-img');
-var sunglassesImg = document.querySelector('.sunglasses-img');
 
 function removeAllAccessories() {
   necklaceImg.classList.add('hidden');
@@ -242,15 +260,6 @@ function changeBackground(background) {
 // Background selector --end--
 
 // save oufit button function --begin--
-var saveNewBearInput = document.querySelector('.name-bear-input');
-var savedOutfitsSection = document.querySelector('.column3');
-var saveNewBearButton = document.querySelector('.name-save-button');
-
-saveNewBearButton.disabled = true;
-
-saveNewBearInput.addEventListener('keyup', enableSaveButton);
-saveNewBearButton.addEventListener('click', createNewBearCard);
-savedOutfitsSection.addEventListener('click', closeOutCard);
 
 function enableSaveButton() {
   if (saveNewBearInput.value == '') {
@@ -260,10 +269,6 @@ function enableSaveButton() {
   }
 }
 
-
-
-
-var randomColorBackground = ['#ee836f', '#dccb18', '#00a3af'];
 function chooseRandomColor() {
   var i = Math.floor(Math.random() * 3);
   return randomColorBackground[i];
@@ -365,8 +370,9 @@ function reloadAccessory(accessory) {
   } else if (accessory == 'sunglasses') {
     removeAllAccessories();
     sunglassesImg.classList.remove('hidden');
-  } 
+  }
 }
+
 // default naked bear --begin--
 function nakedBear() {
   saveBearOutfit();
@@ -377,10 +383,6 @@ function nakedBear() {
   defaultOutfit();
   mainBearSection.style.backgroundImage = 'none';
 }
-
-var backgroundButtons = document.querySelectorAll('.background-button');
-var pinkButtons = document.querySelectorAll('.pink-btn');
-var blueButtons = document.querySelectorAll('.blue-btn');
 
 function defaultButtons() {
   for (var i = 0; i < pinkButtons.length; i++) {
