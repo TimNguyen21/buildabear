@@ -312,7 +312,15 @@ function editBearCard() {
   }
 }
 
+function resetAllClothes() {
+  removeAllHats();
+  removeAllClothes();
+  removeAllAccessories();
+  mainBearSection.style.backgroundImage = 'none';
+}
+
 function addStuff(hat, clothes, accessory, background) {
+  resetAllClothes();
   reloadHats(hat);
   reloadClothes(clothes);
   reloadAccessory(accessory);
