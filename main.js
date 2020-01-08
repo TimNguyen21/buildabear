@@ -35,6 +35,10 @@ var sunglassesImg = document.querySelector('.sunglasses-img');
 //Extension Variables:
 var randomColorBackground = ['#ee836f', '#dccb18', '#00a3af'];
 
+//Arrays Variables:
+var hatsArray = ['top-hat', 'sun-hat', 'bow', 'crown'];
+var hatsImgArray = [topHatImg, sunHatImg, bowHatImg, crownHatImg];
+
 //Event Listeners:
 window.addEventListener('load', restoreOutfitCards);
 hats.addEventListener('click', hatSelectorEventHandler);
@@ -47,9 +51,6 @@ savedOutfitsSection.addEventListener('click', closeOutCard);
 savedOutfitsSection.addEventListener('click', editBearCard);
 
 //HATS -START-
-var hatsArray = ['top-hat', 'sun-hat', 'bow', 'crown'];
-var hatsImgArray = [topHatImg, sunHatImg, bowHatImg, crownHatImg];
-
 function hatSelectorEventHandler(event) {
   if (event.target.classList.contains('pink-button-active')) {
     removeAllHats();
@@ -60,23 +61,13 @@ function hatSelectorEventHandler(event) {
   }
 }
 
-function addHats(e) {
-  if (e.target.classList.contains('top-hat')) {
-    removeAllHats();
-    outfit.addGarment(0, 'top-hat');
-    topHatImg.classList.remove('hidden');
-  } else if (e.target.classList.contains('sun-hat')) {
-    removeAllHats();
-    outfit.addGarment(0, 'sun-hat');
-    sunHatImg.classList.remove('hidden');
-  } else if (e.target.classList.contains('bow')) {
-    removeAllHats();
-    outfit.addGarment(0, 'bow');
-    bowHatImg.classList.remove('hidden');
-  } else if (e.target.classList.contains('crown')) {
-    removeAllHats();
-    outfit.addGarment(0, 'crown');
-    crownHatImg.classList.remove('hidden');
+function addHats(event) {
+  for (var i = 0; i < hatsArray.length; i++) {
+    if (event.target.classList.contains(hatsArray[i])) {
+      removeAllHats();
+      outfit.addGarment(0, hatsArray[i]);
+      hatsImgArray[i].classList.remove('hidden');
+    }
   }
 }
 
