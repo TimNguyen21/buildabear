@@ -16,9 +16,8 @@ var hatsButtons = document.querySelectorAll('.hats-btn');
 var accessoriesButtons = document.querySelectorAll('.accessories-btn');
 var clothesButtons = document.querySelectorAll('.clothes-btn');
 var backgroundButtons = document.querySelectorAll('.background-button');
-var pinkButtons = document.querySelectorAll('.pink-btn');
-var blueButtons = document.querySelectorAll('.blue-btn');
 var saveNewBearButton = document.querySelector('.name-save-button');
+var allButtonsOnPage = document.querySelectorAll('button');
 saveNewBearButton.disabled = true;
 
 //Images variables:
@@ -48,6 +47,9 @@ savedOutfitsSection.addEventListener('click', closeOutCard);
 savedOutfitsSection.addEventListener('click', editBearCard);
 
 //HATS -START-
+var hatsArray = ['top-hat', 'sun-hat', 'bow', 'crown'];
+var hatsImgArray = [topHatImg, sunHatImg, bowHatImg, crownHatImg];
+
 function hatSelectorEventHandler(event) {
   if (event.target.classList.contains('pink-button-active')) {
     removeAllHats();
@@ -334,18 +336,10 @@ function addStuff(hat, clothes, accessory, background) {
 }
 
 function reloadHats(hat) {
-  if (hat == 'top-hat') {
-    removeAllHats();
-    topHatImg.classList.remove('hidden');
-  } else if (hat == 'sun-hat') {
-    removeAllHats();
-    sunHatImg.classList.remove('hidden');
-  } else if (hat == 'bow') {
-    removeAllHats();
-    bowHatImg.classList.remove('hidden');
-  } else if (hat == 'crown') {
-    removeAllHats();
-    crownHatImg.classList.remove('hidden');
+  for (var i = 0; i < hatsArray.length; i++) {
+    if (hat == hatsArray[i]) {
+      hatsImgArray[i].classList.remove('hidden');
+    }
   }
 }
 
@@ -387,12 +381,9 @@ function nakedBear() {
 }
 
 function defaultButtons() {
-  for (var i = 0; i < pinkButtons.length; i++) {
-    pinkButtons[i].classList.remove('pink-button-active');
-  }
-
-  for (var i = 0; i < blueButtons.length; i++) {
-    blueButtons[i].classList.remove('blue-button-active');
+  for (var i = 0; i < allButtonsOnPage.length; i++) {
+    allButtonsOnPage[i].classList.remove('pink-button-active');
+    allButtonsOnPage[i].classList.remove('blue-button-active');
   }
 }
 
