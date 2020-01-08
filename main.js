@@ -1,5 +1,6 @@
 var id = Date.now(id);
 var outfit = new Outfit(id, null, [], null);
+var currentOutfit = '';
 
 //Global Section Variables:
 var mainBearSection = document.querySelector('.main-bear');
@@ -266,7 +267,11 @@ function chooseRandomColor() {
 
 function createNewBearCard() {
   outfit.title = saveNewBearInput.value;
-  savedOutfitsSection.innerHTML += `<article data-id="${outfit.id}"class="saved-outfit-box" style="background-color:${chooseRandomColor()}"><span data-id="${outfit.id}">${saveNewBearInput.value}</span><div class="close-x-icon">X</div></article>`
+  if (outfit.id == currentOutfit.id) {
+    localStorage.setItem(outfit.id, JSON.stringify(outfit));
+  } else {
+    savedOutfitsSection.innerHTML += `<article data-id="${outfit.id}"class="saved-outfit-box" style="background-color:${chooseRandomColor()}"><span data-id="${outfit.id}">${saveNewBearInput.value}</span><div class="close-x-icon">X</div></article>`
+  }
   saveNewBearInput.value = '';
   saveNewBearButton.disabled = true;
   nakedBear();
@@ -305,10 +310,11 @@ function closeOutCard(event) {
 function editBearCard() {
   if (event.target.classList.contains('saved-outfit-box')) {
     saveNewBearButton.disabled = false;
-    var currentOutfit = JSON.parse(localStorage.getItem(event.target.dataset.id));
+    currentOutfit = JSON.parse(localStorage.getItem(event.target.dataset.id));
     saveNewBearInput.value = currentOutfit.title;
     addStuff(currentOutfit.garments[0], currentOutfit.garments[1],
     currentOutfit.garments[2], currentOutfit.background);
+    outfit = new Outfit(currentOutfit.id, currentOutfit.title, currentOutfit.garments, currentOutfit.background);
   }
 }
 
