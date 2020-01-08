@@ -1,21 +1,52 @@
-var mainBearSection = document.querySelector('.main-bear');
-var hats = document.querySelector('.hats-selection');
-var hatsButtons = document.querySelectorAll('.hats-btn');
-var accessoriesButtons = document.querySelectorAll('.accessories-btn');
-var clothesButtons = document.querySelectorAll('.clothes-btn');
-var clothes = document.querySelector('.clothes-selection');
-var accessories = document.querySelector('.accessories-selection');
-var background = document.querySelector('.background-selection');
 var id = Date.now(id);
 var outfit = new Outfit(id, null, [], null);
 
+//Global Section Variables:
+var mainBearSection = document.querySelector('.main-bear');
+var saveNewBearInput = document.querySelector('.name-bear-input');
+var savedOutfitsSection = document.querySelector('.column3');
+var background = document.querySelector('.background-selection');
+var hats = document.querySelector('.hats-selection');
+var clothes = document.querySelector('.clothes-selection');
+var accessories = document.querySelector('.accessories-selection');
+
+//Buttons variables:
+var hatsButtons = document.querySelectorAll('.hats-btn');
+var accessoriesButtons = document.querySelectorAll('.accessories-btn');
+var clothesButtons = document.querySelectorAll('.clothes-btn');
+var backgroundButtons = document.querySelectorAll('.background-button');
+var pinkButtons = document.querySelectorAll('.pink-btn');
+var blueButtons = document.querySelectorAll('.blue-btn');
+var saveNewBearButton = document.querySelector('.name-save-button');
+saveNewBearButton.disabled = true;
+
+//Images variables:
+var topHatImg = document.querySelector('.top-hat-img');
+var sunHatImg = document.querySelector('.sun-hat-img');
+var bowHatImg = document.querySelector('.bow-hat-img');
+var crownHatImg = document.querySelector('.crown-hat-img');
+var dressImg = document.querySelector('.dress-img');
+var vestImg = document.querySelector('.vest-img');
+var necklaceImg = document.querySelector('.necklace-img');
+var bowtieImg = document.querySelector('.bowtie-img');
+var watchImg = document.querySelector('.watch-img');
+var sunglassesImg = document.querySelector('.sunglasses-img');
+
+//Extension Variables:
+var randomColorBackground = ['#ee836f', '#dccb18', '#00a3af'];
+
+//Event Listeners:
+window.addEventListener('load', restoreOutfitCards);
 hats.addEventListener('click', hatSelectorEventHandler);
 clothes.addEventListener('click', clothesSelectorEventHandler);
 accessories.addEventListener('click', accessoriesSelectorEventHandler);
 background.addEventListener('click', backgroundSelectorEventHandler);
-window.addEventListener('load', restoreOutfitCards);
+saveNewBearInput.addEventListener('keyup', enableSaveButton);
+saveNewBearButton.addEventListener('click', createNewBearCard);
+savedOutfitsSection.addEventListener('click', closeOutCard);
+savedOutfitsSection.addEventListener('click', editBearCard);
 
-// Hats Event Listener -begin-
+//HATS -START-
 function hatSelectorEventHandler(event) {
   if (event.target.classList.contains('pink-button-active')) {
     removeAllHats();
@@ -26,87 +57,6 @@ function hatSelectorEventHandler(event) {
   }
 }
 
-function changeHatButtonToActive(event) {
-  removedHatButtonActive();
-  if (event.target.classList.contains('hats-btn')) {
-    event.target.classList.add('pink-button-active');
-  }
-}
-
-function removedHatButtonActive(event) {
-  for (var i = 0; i < hatsButtons.length; i++) {
-    hatsButtons[i].classList.remove('pink-button-active');
-  }
-}
-
-// Hats Event Listener -end-
-
-// Clothes Event Listener -begin-
-function clothesSelectorEventHandler(event) {
-  if (event.target.classList.contains('blue-button-active')) {
-    removeAllClothes();
-    removedClothesButtonActive();
-  } else if (event.target.classList.contains('clothes-btn')) {
-    changeClothesButtonToActive(event);
-    addClothes(event);
-  }
-}
-
-function changeClothesButtonToActive(event) {
-  removedClothesButtonActive();
-  if (event.target.classList.contains('clothes-btn')) {
-    event.target.classList.add('blue-button-active');
-  }
-}
-
-function removedClothesButtonActive(event) {
-  for (var i = 0; i < clothesButtons.length; i++) {
-    clothesButtons[i].classList.remove('blue-button-active');
-  }
-}
-
-// Clothes Event Listener -end-
-
-// Accessories Event Listener -begin-
-function accessoriesSelectorEventHandler(event) {
-  if (event.target.classList.contains('pink-button-active')) {
-    removeAllAccessories();
-    removedAccessoriesButtonActive();
-  } else if (event.target.classList.contains('accessories-btn')) {
-    changeAccessoriesButtonToActive(event);
-    addAccessories(event);
-  }
-}
-
-function changeAccessoriesButtonToActive(event) {
-  removedAccessoriesButtonActive();
-  if (event.target.classList.contains('accessories-btn')) {
-    event.target.classList.add('pink-button-active');
-  }
-}
-
-function removedAccessoriesButtonActive(event) {
-  for (var i = 0; i < accessoriesButtons.length; i++) {
-    accessoriesButtons[i].classList.remove('pink-button-active');
-  }
-}
-
-// Accessories Event Listener -end-
-
-// hats selction -below-
-var topHatImg = document.querySelector('.top-hat-img');
-var sunHatImg = document.querySelector('.sun-hat-img');
-var bowHatImg = document.querySelector('.bow-hat-img');
-var crownHatImg = document.querySelector('.crown-hat-img');
-
-function removeAllHats() {
-  topHatImg.classList.add('hidden');
-  sunHatImg.classList.add('hidden');
-  bowHatImg.classList.add('hidden');
-  crownHatImg.classList.add('hidden');
-}
-
-// add hats
 function addHats(e) {
   if (e.target.classList.contains('top-hat')) {
     removeAllHats();
@@ -127,16 +77,39 @@ function addHats(e) {
   }
 }
 
-// clothes selection -below-
-var dressImg = document.querySelector('.dress-img');
-var vestImg = document.querySelector('.vest-img');
-
-function removeAllClothes() {
-  dressImg.classList.add('hidden');
-  vestImg.classList.add('hidden');
+function changeHatButtonToActive(event) {
+  removedHatButtonActive();
+  if (event.target.classList.contains('hats-btn')) {
+    event.target.classList.add('pink-button-active');
+  }
 }
 
-// add clothes
+function removedHatButtonActive(event) {
+  for (var i = 0; i < hatsButtons.length; i++) {
+    hatsButtons[i].classList.remove('pink-button-active');
+  }
+}
+
+function removeAllHats() {
+  topHatImg.classList.add('hidden');
+  sunHatImg.classList.add('hidden');
+  bowHatImg.classList.add('hidden');
+  crownHatImg.classList.add('hidden');
+}
+
+// HATS -END-
+
+// CLOTHES -START-
+function clothesSelectorEventHandler(event) {
+  if (event.target.classList.contains('blue-button-active')) {
+    removeAllClothes();
+    removedClothesButtonActive();
+  } else if (event.target.classList.contains('clothes-btn')) {
+    changeClothesButtonToActive(event);
+    addClothes(event);
+  }
+}
+
 function addClothes(e) {
   if (e.target.classList.contains('vest')) {
     outfit.addGarment(1, 'vest');
@@ -149,20 +122,37 @@ function addClothes(e) {
   }
 }
 
-// accessories selection -below-
-var necklaceImg = document.querySelector('.necklace-img');
-var bowtieImg = document.querySelector('.bowtie-img');
-var watchImg = document.querySelector('.watch-img');
-var sunglassesImg = document.querySelector('.sunglasses-img');
-
-function removeAllAccessories() {
-  necklaceImg.classList.add('hidden');
-  bowtieImg.classList.add('hidden');
-  watchImg.classList.add('hidden');
-  sunglassesImg.classList.add('hidden');
+function changeClothesButtonToActive(event) {
+  removedClothesButtonActive();
+  if (event.target.classList.contains('clothes-btn')) {
+    event.target.classList.add('blue-button-active');
+  }
 }
 
-// add accessories
+function removedClothesButtonActive(event) {
+  for (var i = 0; i < clothesButtons.length; i++) {
+    clothesButtons[i].classList.remove('blue-button-active');
+  }
+}
+
+function removeAllClothes() {
+  dressImg.classList.add('hidden');
+  vestImg.classList.add('hidden');
+}
+
+// CLOTHES -END-
+
+// ACCESSORIES -START-
+function accessoriesSelectorEventHandler(event) {
+  if (event.target.classList.contains('pink-button-active')) {
+    removeAllAccessories();
+    removedAccessoriesButtonActive();
+  } else if (event.target.classList.contains('accessories-btn')) {
+    changeAccessoriesButtonToActive(event);
+    addAccessories(event);
+  }
+}
+
 function addAccessories(e) {
   if (e.target.classList.contains('necklace')) {
     removeAllAccessories();
@@ -183,9 +173,30 @@ function addAccessories(e) {
   }
 }
 
-// add background
+function changeAccessoriesButtonToActive(event) {
+  removedAccessoriesButtonActive();
+  if (event.target.classList.contains('accessories-btn')) {
+    event.target.classList.add('pink-button-active');
+  }
+}
+
+function removedAccessoriesButtonActive(event) {
+  for (var i = 0; i < accessoriesButtons.length; i++) {
+    accessoriesButtons[i].classList.remove('pink-button-active');
+  }
+}
+
+function removeAllAccessories() {
+  necklaceImg.classList.add('hidden');
+  bowtieImg.classList.add('hidden');
+  watchImg.classList.add('hidden');
+  sunglassesImg.classList.add('hidden');
+}
+
+// ACCESSORIES -END-
+
+// BACKGROUND -START-
 function backgroundSelectorEventHandler(e) {
-  // changeBackgroundToActive(event);
   if (e.target.classList.contains('blue-background')) {
     outfit.background = 'blue';
   } else if (e.target.classList.contains('park-background')) {
@@ -204,24 +215,6 @@ function backgroundSelectorEventHandler(e) {
   changeBackgroundToggle(event);
 }
 
-function changeBackgroundToggle(event) {
-  if (event.target.classList.contains('blue-button-active')) {
-    removedBackgroundButtonActive();
-    mainBearSection.style.backgroundImage = 'none';
-  } else if (event.target.classList.contains('background-button')) {
-    removedBackgroundButtonActive();
-    event.target.classList.add('blue-button-active');
-  }
-}
-
-function removedBackgroundButtonActive(event) {
-  for (var i = 0; i < backgroundButtons.length; i++) {
-    backgroundButtons[i].classList.remove('blue-button-active');
-  }
-}
-
-// Background selector --start--
-
 function changeBackground(background) {
   mainBearSection.style.backgroundImage = 'none';
   if (background == 'blue') {
@@ -239,19 +232,25 @@ function changeBackground(background) {
   }
 }
 
-// Background selector --end--
+function changeBackgroundToggle(event) {
+  if (event.target.classList.contains('blue-button-active')) {
+    removedBackgroundButtonActive();
+    mainBearSection.style.backgroundImage = 'none';
+  } else if (event.target.classList.contains('background-button')) {
+    removedBackgroundButtonActive();
+    event.target.classList.add('blue-button-active');
+  }
+}
+
+function removedBackgroundButtonActive(event) {
+  for (var i = 0; i < backgroundButtons.length; i++) {
+    backgroundButtons[i].classList.remove('blue-button-active');
+  }
+}
+
+// BACKGROUND -END-
 
 // save oufit button function --begin--
-var saveNewBearInput = document.querySelector('.name-bear-input');
-var savedOutfitsSection = document.querySelector('.column3');
-var saveNewBearButton = document.querySelector('.name-save-button');
-
-saveNewBearButton.disabled = true;
-
-saveNewBearInput.addEventListener('keyup', enableSaveButton);
-saveNewBearButton.addEventListener('click', createNewBearCard);
-savedOutfitsSection.addEventListener('click', closeOutCard);
-
 function enableSaveButton() {
   if (saveNewBearInput.value == '') {
     saveNewBearButton.disabled = true;
@@ -260,10 +259,6 @@ function enableSaveButton() {
   }
 }
 
-
-
-
-var randomColorBackground = ['#ee836f', '#dccb18', '#00a3af'];
 function chooseRandomColor() {
   var i = Math.floor(Math.random() * 3);
   return randomColorBackground[i];
@@ -282,7 +277,6 @@ function saveBearOutfit() {
   localStorage.setItem(bearCardID, JSON.stringify(outfit));
 }
 
-// var currentOutfit = '';
 function restoreOutfitCards() {
   for (var i = 0; i < localStorage.length; i++) {
     var currentOutfit = JSON.parse(localStorage.getItem(localStorage.key(i)));
@@ -307,7 +301,6 @@ function closeOutCard(event) {
 
 // save / delete oufit button function --end--
 // save oufit button function --end--
-savedOutfitsSection.addEventListener('click', editBearCard);
 
 function editBearCard() {
   if (event.target.classList.contains('saved-outfit-box')) {
@@ -365,8 +358,9 @@ function reloadAccessory(accessory) {
   } else if (accessory == 'sunglasses') {
     removeAllAccessories();
     sunglassesImg.classList.remove('hidden');
-  } 
+  }
 }
+
 // default naked bear --begin--
 function nakedBear() {
   saveBearOutfit();
@@ -377,10 +371,6 @@ function nakedBear() {
   defaultOutfit();
   mainBearSection.style.backgroundImage = 'none';
 }
-
-var backgroundButtons = document.querySelectorAll('.background-button');
-var pinkButtons = document.querySelectorAll('.pink-btn');
-var blueButtons = document.querySelectorAll('.blue-btn');
 
 function defaultButtons() {
   for (var i = 0; i < pinkButtons.length; i++) {
