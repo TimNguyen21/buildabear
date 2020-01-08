@@ -7,7 +7,6 @@
 html,
 body
 {
-  /* background-color: #D1D2D4; */
   width: 100%;
   height: 100%;
   margin: 0px;
@@ -20,7 +19,6 @@ header {
   display: flex;
   justify-content: center;
   width: 100%;
-  /* border: 2px solid black; */
   padding: 0px;
   margin: 0px;
   background-color: #43676B;
@@ -37,11 +35,12 @@ header h1 {
   border-radius: 6%;
 }
 
-.a-in-title {
-  font-family: 'Comfortaa', cursive;
-  font-weight: 400;
-  color: #ee836f;
-  font-size: 2em;
+h3 {
+  margin-top: 2%;
+  margin-bottom: 0;
+  color: #43676B;
+  font-size: 1.6em;
+  letter-spacing: .3em;
 }
 
 main {
@@ -51,12 +50,24 @@ main {
   height: 43em;
 }
 
+.a-in-title {
+  font-family: 'Comfortaa', cursive;
+  font-weight: 400;
+  color: #ee836f;
+  font-size: 2em;
+}
+
+.gutter-bottom {
+  background-color: #43676B;
+  height: 5em;
+}
+
+/* Section Format */
 .column1,
 .column2 {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  /* border: 2px solid black; */
   flex: 1;
 }
 
@@ -64,29 +75,32 @@ main {
   border-right: 4px solid #43676B;
 }
 
+.column2 {
+  align-items: center;
+  justify-content: space-around;
+}
+
 .column3 {
+  align-items: center;
+  justify-content: flex-start;
   flex: 1;
   border-left: 4px solid #43676B;
+
 }
 
 .column3 h3 {
   margin-left: 5%;
 }
 
-h3 {
-  margin-top: 2%;
-  margin-bottom: 0;
-  color: #43676B;
-  font-size: 1.6em;
-  letter-spacing: .3em;
-}
-
 .arrows {
   font-size: 1.3em;
 }
 
-button:focus {
-  outline:0;
+#hats-selection,
+#clothes-selection,
+#accessories-selection,
+#background-selection {
+  height: 100vh;
 }
 
 #clothes-selection {
@@ -108,17 +122,123 @@ button:focus {
   border-bottom: 4px solid #43676B;
 }
 
+/* Main Bear Section */
+.main-bear {
+  width: 95%;
+  height: 85%;
+  justify-content: space-around;
+  border-radius: 4em;
+}
+
+.name-bear-input {
+  color: #dcd3b2;
+  font-size: 1.2em;
+  text-align: center;
+  width: 15em;
+  height: 2em;
+  background-color: #ee836f;
+  box-shadow: 0px 4px 1px 0px #b84430;
+  border: 0;
+  border-radius: .5em;
+}
+
+/* Save Output Section */
+.saved-outfit-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0em .5em;
+  margin: 5%;
+  color: #43676B;
+  border: 2px solid #43676B;
+  box-shadow: 0px 4px 1px 0px rgba(30,102,107,1);
+  width: 90%;
+  height: 9%;
+  border-radius: 15px;
+  font-size: 1.4em;
+}
+
+.close-x-icon {
+  cursor: pointer;
+}
+
+/* Buttons Section */
 .hats-header-btns,
 .clothes-header-btns,
 .accessories-header-btns,
 .background-header-btns {
-margin-left: 5%;
-line-height: 2.2em;
-display: inline-block;
+  margin-left: 5%;
+  line-height: 2.2em;
+  display: inline-block;
 }
 
-.margin-left-class-btn {
-  margin-left: 10px;
+.name-save-button {
+  color: #dcd3b2;
+  font-size: 1.2em;
+  background-color: #ee836f;
+  box-shadow: 0px 4px 1px 0px #b84430;
+  height: 2em;
+  width: 6em;
+  border-radius: 1em;
+  border-radius: .5em;
+  margin-left: 1em;
+  cursor: grab;
+}
+
+.input-save-button {
+  display: flex;
+  align-items: center;
+}
+
+.name-save-button:disabled {
+  color: #dcd3b2;
+  font-size: 1.2em;
+  background-color: #1E666B;
+  box-shadow: 0px 4px 1px 0px #00a3af;
+  height: 2em;
+  width: 6em;
+  border-radius: 1em;
+  border-radius: .5em;
+  margin-left: 1em;
+  cursor: default;
+}
+
+/* Button Format */
+.vest,
+.dress,
+.blue-background,
+.park-background,
+.beach-background,
+.space-background,
+.yellow-background,
+.heart-background {
+  cursor: pointer;
+  font-size: 1.5em;
+  background-color: #00a3af;
+  color: #dcd3b2;
+  text-transform: uppercase;
+  margin-top: 9px;
+  font-weight: 700;
+  border-radius: .5em;
+  padding: .3em .5em .1em .5em;
+  box-shadow: 0px 4px 1px 0px rgba(30,102,107,1);
+  border: none;
+}
+
+.vest:hover,
+.dress:hover,
+.blue-background:hover,
+.park-background:hover,
+.beach-background:hover,
+.space-background:hover,
+.yellow-background:hover,
+.heart-background:hover {
+  transition: .2s;
+  color: #00a3af;
+  background-color: #dcd3b2;
+  border: solid 3px #43676B;
+  box-shadow: none;
 }
 
 .top-hat,
@@ -157,45 +277,8 @@ display: inline-block;
   box-shadow: none;
 }
 
-.pink-button-active {
-  background-color: #b84430;
-  box-shadow: 0px 4px 1px 0px #ee836f;
-}
-
-.vest,
-.dress,
-.blue-background,
-.park-background,
-.beach-background,
-.space-background,
-.yellow-background,
-.heart-background {
-  cursor: pointer;
-  font-size: 1.5em;
-  background-color: #00a3af;
-  color: #dcd3b2;
-  text-transform: uppercase;
-  margin-top: 9px;
-  font-weight: 700;
-  border-radius: .5em;
-  padding: .3em .5em .1em .5em;
-  box-shadow: 0px 4px 1px 0px rgba(30,102,107,1);
-  border: none;
-}
-
-.vest:hover,
-.dress:hover,
-.blue-background:hover,
-.park-background:hover,
-.beach-background:hover,
-.space-background:hover,
-.yellow-background:hover,
-.heart-background:hover {
-  transition: .2s;
-  color: #00a3af;
-  background-color: #dcd3b2;
-  border: solid 3px #43676B;
-  box-shadow: none;
+.name-save-button:focus {
+  outline: none;
 }
 
 .blue-button-active {
@@ -203,24 +286,34 @@ display: inline-block;
   box-shadow: 0px 4px 1px 0px #00a3af;
 }
 
-.column2 {
-  align-items: center;
-  justify-content: space-around;
+.pink-button-active {
+  background-color: #b84430;
+  box-shadow: 0px 4px 1px 0px #ee836f;
 }
 
-.hidden {
-  display: none;
+.margin-left-class-btn {
+  margin-left: 10px;
+}
+
+button:focus {
+  outline:0;
+}
+
+/* Image Section */
+.bear-image {
+  width: 100%;
+  height: 100%;
 }
 
 .top-hat-img,
 .bow-hat-img,
 .crown-hat-img {
- width: 100px;
- position: absolute;
- top: 19%;
- left: 50%;
- transform: rotate(21deg);
- box-sizing: border-box;
+  width: 100px;
+  position: absolute;
+  top: 19%;
+  left: 50%;
+  transform: rotate(21deg);
+  box-sizing: border-box;
 }
 
 .sun-hat-img {
@@ -261,7 +354,6 @@ display: inline-block;
   transform: rotate(65deg);
 }
 
-
 .necklace-img {
   width: 114px;
   height: 55px;
@@ -288,110 +380,15 @@ display: inline-block;
   transform: rotate(14deg);
 }
 
-.column3 {
-  align-items: center;
-  justify-content: flex-start;
+.hidden {
+  display: none;
 }
 
-.gutter-bottom {
-  background-color: #43676B;
-  height: 5em;
-}
-
-#hats-selection, #clothes-selection, #accessories-selection, #background-selection {
-  /* border: 2px solid black; */
-  height: 100vh;
-}
-
-/* .hats-selection, .clothes-selection, .accessories-selection, .background-selection {
-  border: 2px solid black;
-  height: 25%;
-} */
-
-.main-bear {
-  /* border: 2px solid black; */
-  width: 95%;
-  height: 85%;
-  justify-content: space-around;
-  border-radius: 4em;
-}
-
-.bear-image {
-  width: 100%;
-  height: 100%;
-}
-
-.input-save-button {
-  display: flex;
-  align-items: center;
-}
-
-.name-bear-input {
-  color: #dcd3b2;
-  font-size: 1.2em;
-  text-align: center;
-  width: 15em;
-  height: 2em;
-  background-color: #ee836f;
-  box-shadow: 0px 4px 1px 0px #b84430;
-  border: 0;
-  border-radius: .5em;
-}
-
+/* Extra */
 input:focus {
-  outline: none;
-}
-
-.name-save-button:disabled {
-  color: #dcd3b2;
-  font-size: 1.2em;
-  background-color: #1E666B;
-  box-shadow: 0px 4px 1px 0px #00a3af;
-  height: 2em;
-  width: 6em;
-  border-radius: 1em;
-  border-radius: .5em;
-  margin-left: 1em;
-  cursor: default;
-}
-
-.name-save-button {
-  color: #dcd3b2;
-  font-size: 1.2em;
-  background-color: #ee836f;
-  box-shadow: 0px 4px 1px 0px #b84430;
-  height: 2em;
-  width: 6em;
-  border-radius: 1em;
-  border-radius: .5em;
-  margin-left: 1em;
-  cursor: grab;
-}
-
-.name-save-button:focus {
   outline: none;
 }
 
 ::placeholder {
   color: #dcd3b2;
-}
-
-.saved-outfit-box {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0em .5em;
-  margin: 5%;
-  color: #43676B;
-  border: 2px solid #43676B;
-  box-shadow: 0px 4px 1px 0px rgba(30,102,107,1);
-  width: 90%;
-  height: 9%;
-  border-radius: 15px;
-  font-size: 1.4em;
-}
-
-.close-x-icon {
-  cursor: pointer;
 }
