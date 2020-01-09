@@ -43,7 +43,9 @@ var clothesImgArray = [vestImg, dressImg];
 var accessoriesArray = ['necklace', 'bowtie', 'watch', 'sunglasses'];
 var accessoriesImgArray = [necklaceImg, bowtieImg, watchImg, sunglassesImg];
 var backgroundArray = ['blue', 'park', 'beach', 'space', 'yellow', 'heart'];
-var backgroundImgArray = ["url('assets/blue.png')", "url('assets/park.png')", "url('assets/beach.png')", "url('assets/outerspace.png')", "url('assets/yellow.png')", "url('assets/hearts.png')"];
+var backgroundImgArray = ["url('assets/blue.png')", "url('assets/park.png')",
+"url('assets/beach.png')", "url('assets/outerspace.png')", "url('assets/yellow.png')",
+"url('assets/hearts.png')"];
 
 //Event Listeners:
 window.addEventListener('load', restoreOutfitCards);
@@ -97,8 +99,6 @@ function removeAllHats() {
   crownHatImg.classList.add('hidden');
 }
 
-// HATS -END-
-
 // CLOTHES -START-
 function clothesSelectorEventHandler(event) {
   if (event.target.classList.contains('blue-button-active')) {
@@ -137,8 +137,6 @@ function removeAllClothes() {
   dressImg.classList.add('hidden');
   vestImg.classList.add('hidden');
 }
-
-// CLOTHES -END-
 
 // ACCESSORIES -START-
 function accessoriesSelectorEventHandler(event) {
@@ -181,15 +179,14 @@ function removeAllAccessories() {
   sunglassesImg.classList.add('hidden');
 }
 
-// ACCESSORIES -END-
-
 // BACKGROUND -START-
 function backgroundSelectorEventHandler(e) {
-  for(var i = 0; i < backgroundArray.length; i++) {
+  for (var i = 0; i < backgroundArray.length; i++) {
     if (event.target.classList.contains(backgroundArray[i])) {
       outfit.background = backgroundArray[i];
     }
   }
+
   changeBackground(outfit.background);
   changeBackgroundToggle(event);
 }
@@ -219,8 +216,6 @@ function removedBackgroundButtonActive(event) {
   }
 }
 
-// BACKGROUND -END-
-
 // save oufit button function --begin--
 function enableSaveButton() {
   if (saveNewBearInput.value == '') {
@@ -242,6 +237,7 @@ function createNewBearCard() {
   } else {
     savedOutfitsSection.innerHTML += `<article data-id="${outfit.id}"class="saved-outfit-box" style="background-color:${chooseRandomColor()}"><span data-id="${outfit.id}">${saveNewBearInput.value}</span><div class="close-x-icon">X</div></article>`
   }
+
   saveNewBearInput.value = '';
   saveNewBearButton.disabled = true;
   nakedBear();
@@ -252,16 +248,7 @@ function saveBearOutfit() {
   localStorage.setItem(bearCardID, JSON.stringify(outfit));
 }
 
-function restoreOutfitCards() {
-  for (var i = 0; i < localStorage.length; i++) {
-    var currentOutfit = JSON.parse(localStorage.getItem(localStorage.key(i)));
-    var title = currentOutfit.title;
-    var outfitCard = `<article data-id="${currentOutfit.id}" class="saved-outfit-box" style="background-color:${chooseRandomColor()}"><span data-id="${currentOutfit.id}">${title}</span><div class="close-x-icon">X</div></article>`;
-    savedOutfitsSection.insertAdjacentHTML('beforeend', outfitCard);
-  }
-}
-
-//close-saved-bear-card-when-x-is-pressed
+//Remove card
 function closeOutCard(event) {
   if (event.target.classList.contains('close-x-icon'))
     for (var i = 0; i < localStorage.length; i++) {
@@ -274,12 +261,11 @@ function closeOutCard(event) {
     saveNewBearInput.value = '';
     resetAllClothes();
     defaultOutfit();
+    saveNewBearButton.disabled = true;
   }
 }
 
-// save / delete oufit button function --end--
-// save oufit button function --end--
-
+//RELOAD Bear from LocalStorage
 function editBearCard() {
   if (event.target.classList.contains('saved-outfit-box')) {
     saveNewBearButton.disabled = false;
@@ -331,7 +317,6 @@ function reloadAccessory(accessory) {
   }
 }
 
-// default naked bear --begin--
 function nakedBear() {
   saveBearOutfit();
   removeAllClothes();
@@ -349,11 +334,19 @@ function defaultButtons() {
   }
 }
 
-// default naked bear --end--
 function defaultOutfit() {
   id = Date.now();
   outfit.id = id;
   outfit.name = null;
   outfit.garments = [];
   outfit.background = null;
+}
+
+function restoreOutfitCards() {
+  for (var i = 0; i < localStorage.length; i++) {
+    var currentOutfit = JSON.parse(localStorage.getItem(localStorage.key(i)));
+    var title = currentOutfit.title;
+    var outfitCard = `<article data-id="${currentOutfit.id}" class="saved-outfit-box" style="background-color:${chooseRandomColor()}"><span data-id="${currentOutfit.id}">${title}</span><div class="close-x-icon">X</div></article>`;
+    savedOutfitsSection.insertAdjacentHTML('beforeend', outfitCard);
+  }
 }
