@@ -42,6 +42,8 @@ var clothesArray = ['vest', 'dress'];
 var clothesImgArray = [vestImg, dressImg];
 var accessoriesArray = ['necklace', 'bowtie', 'watch', 'sunglasses'];
 var accessoriesImgArray = [necklaceImg, bowtieImg, watchImg, sunglassesImg];
+var backgroundArray = ['blue', 'park', 'beach', 'space', 'yellow', 'heart'];
+var backgroundImgArray = ["url('assets/blue.png')", "url('assets/park.png')", "url('assets/beach.png')", "url('assets/outerspace.png')", "url('assets/yellow.png')", "url('assets/hearts.png')"];
 
 //Event Listeners:
 window.addEventListener('load', restoreOutfitCards);
@@ -111,6 +113,7 @@ function clothesSelectorEventHandler(event) {
 function addClothes(e) {
   for (var i = 0; i < clothesArray.length; i++) {
     if (e.target.classList.contains(clothesArray[i])) {
+      removeAllClothes();
       outfit.addGarment(1, clothesArray[i]);
       clothesImgArray[i].classList.remove('hidden');
     }
@@ -182,38 +185,21 @@ function removeAllAccessories() {
 
 // BACKGROUND -START-
 function backgroundSelectorEventHandler(e) {
-  if (e.target.classList.contains('blue-background')) {
-    outfit.background = 'blue';
-  } else if (e.target.classList.contains('park-background')) {
-    outfit.background = 'park';
-  } else if (e.target.classList.contains('beach-background')) {
-    outfit.background = 'beach';
-  } else if (e.target.classList.contains('space-background')) {
-    outfit.background = 'space';
-  } else if (e.target.classList.contains('yellow-background')) {
-    outfit.background = 'yellow';
-  } else if (e.target.classList.contains('heart-background')) {
-    outfit.background = 'heart';
+  for(var i = 0; i < backgroundArray.length; i++) {
+    if (event.target.classList.contains(backgroundArray[i])) {
+      outfit.background = backgroundArray[i];
+    }
   }
-
   changeBackground(outfit.background);
   changeBackgroundToggle(event);
 }
 
 function changeBackground(background) {
-  mainBearSection.style.backgroundImage = 'none';
-  if (background == 'blue') {
-    mainBearSection.style.backgroundImage = "url('assets/blue.png')";
-  } else if (background == 'park') {
-    mainBearSection.style.backgroundImage = "url('assets/park.png')";
-  } else if (background == 'beach') {
-    mainBearSection.style.backgroundImage = "url('assets/beach.png')";
-  } else if (background == 'space') {
-    mainBearSection.style.backgroundImage = "url('assets/outerspace.png')";
-  } else if (background == 'yellow') {
-    mainBearSection.style.backgroundImage = "url('assets/yellow.png')";
-  } else if (background == 'heart') {
-    mainBearSection.style.backgroundImage = "url('assets/hearts.png')";
+  for (var i = 0; i < backgroundArray.length; i++) {
+    if (background == backgroundArray[i]) {
+      mainBearSection.style.backgroundImage = 'none';
+      mainBearSection.style.backgroundImage = backgroundImgArray[i];
+    }
   }
 }
 
@@ -364,7 +350,6 @@ function defaultButtons() {
 }
 
 // default naked bear --end--
-
 function defaultOutfit() {
   id = Date.now();
   outfit.id = id;
