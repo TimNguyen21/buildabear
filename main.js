@@ -38,6 +38,10 @@ var randomColorBackground = ['#ee836f', '#dccb18', '#00a3af'];
 //Arrays Variables:
 var hatsArray = ['top-hat', 'sun-hat', 'bow', 'crown'];
 var hatsImgArray = [topHatImg, sunHatImg, bowHatImg, crownHatImg];
+var clothesArray = ['vest', 'dress'];
+var clothesImgArray = [vestImg, dressImg];
+var accessoriesArray = ['necklace', 'bowtie', 'watch', 'sunglasses'];
+var accessoriesImgArray = [necklaceImg, bowtieImg, watchImg, sunglassesImg];
 var backgroundArray = ['blue', 'park', 'beach', 'space', 'yellow', 'heart'];
 var backgroundImgArray = ["url('assets/blue.png')", "url('assets/park.png')", "url('assets/beach.png')", "url('assets/outerspace.png')", "url('assets/yellow.png')", "url('assets/hearts.png')"];
 
@@ -107,14 +111,12 @@ function clothesSelectorEventHandler(event) {
 }
 
 function addClothes(e) {
-  if (e.target.classList.contains('vest')) {
-    outfit.addGarment(1, 'vest');
-    removeAllClothes();
-    vestImg.classList.remove('hidden');
-  } else if (e.target.classList.contains('dress')) {
-    outfit.addGarment(1, 'dress');
-    removeAllClothes();
-    dressImg.classList.remove('hidden');
+  for (var i = 0; i < clothesArray.length; i++) {
+    if (e.target.classList.contains(clothesArray[i])) {
+      removeAllClothes();
+      outfit.addGarment(1, clothesArray[i]);
+      clothesImgArray[i].classList.remove('hidden');
+    }
   }
 }
 
@@ -150,22 +152,12 @@ function accessoriesSelectorEventHandler(event) {
 }
 
 function addAccessories(e) {
-  if (e.target.classList.contains('necklace')) {
-    removeAllAccessories();
-    outfit.addGarment(2, 'necklace');
-    necklaceImg.classList.remove('hidden');
-  } else if (e.target.classList.contains('bowtie')) {
-    removeAllAccessories();
-    outfit.addGarment(2, 'bowtie');
-    bowtieImg.classList.remove('hidden');
-  } else if (e.target.classList.contains('watch')) {
-    removeAllAccessories();
-    outfit.addGarment(2, 'watch');
-    watchImg.classList.remove('hidden');
-  } else if (e.target.classList.contains('sunglasses')) {
-    removeAllAccessories();
-    outfit.addGarment(2, 'sunglasses');
-    sunglassesImg.classList.remove('hidden');
+  for (var i = 0; i < accessoriesArray.length; i++) {
+    if (e.target.classList.contains(accessoriesArray[i])) {
+      removeAllAccessories();
+      outfit.addGarment(2, accessoriesArray[i]);
+      accessoriesImgArray[i].classList.remove('hidden');
+    }
   }
 }
 
@@ -279,6 +271,9 @@ function closeOutCard(event) {
     }
 
     event.target.closest('.saved-outfit-box').remove();
+    saveNewBearInput.value = '';
+    resetAllClothes();
+    defaultOutfit();
   }
 }
 
@@ -290,8 +285,7 @@ function editBearCard() {
     saveNewBearButton.disabled = false;
     currentOutfit = JSON.parse(localStorage.getItem(event.target.dataset.id));
     saveNewBearInput.value = currentOutfit.title;
-    addStuff(currentOutfit.garments[0], currentOutfit.garments[1],
-    currentOutfit.garments[2], currentOutfit.background);
+    addStuff(currentOutfit.garments[0], currentOutfit.garments[1], currentOutfit.garments[2], currentOutfit.background);
     outfit = new Outfit(currentOutfit.id, currentOutfit.title, currentOutfit.garments, currentOutfit.background);
   }
 }
@@ -320,28 +314,20 @@ function reloadHats(hat) {
 }
 
 function reloadClothes(clothes) {
-  if (clothes == 'vest') {
-    removeAllClothes();
-    vestImg.classList.remove('hidden');
-  } else if (clothes == 'dress') {
-    removeAllClothes();
-    dressImg.classList.remove('hidden');
+  for (var i = 0; i < clothesArray.length; i++) {
+    if (clothes == clothesArray[i]) {
+      removeAllClothes();
+      clothesImgArray[i].classList.remove('hidden');
+    }
   }
 }
 
 function reloadAccessory(accessory) {
-  if (accessory == 'necklace') {
-    removeAllAccessories();
-    necklaceImg.classList.remove('hidden');
-  } else if (accessory == 'bowtie') {
-    removeAllAccessories();
-    bowtieImg.classList.remove('hidden');
-  } else if (accessory == 'watch') {
-    removeAllAccessories();
-    watchImg.classList.remove('hidden');
-  } else if (accessory == 'sunglasses') {
-    removeAllAccessories();
-    sunglassesImg.classList.remove('hidden');
+  for (var i = 0; i < accessoriesArray.length; i++) {
+    if (accessory == accessoriesArray[i]) {
+      removeAllAccessories();
+      accessoriesImgArray[i].classList.remove('hidden');
+    }
   }
 }
 
