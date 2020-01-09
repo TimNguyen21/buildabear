@@ -38,6 +38,8 @@ var randomColorBackground = ['#ee836f', '#dccb18', '#00a3af'];
 //Arrays Variables:
 var hatsArray = ['top-hat', 'sun-hat', 'bow', 'crown'];
 var hatsImgArray = [topHatImg, sunHatImg, bowHatImg, crownHatImg];
+var clothesArray = ['vest', 'dress'];
+var clothesImgArray = [vestImg, dressImg];
 var accessoriesArray = ['necklace', 'bowtie', 'watch', 'sunglasses'];
 var accessoriesImgArray = [necklaceImg, bowtieImg, watchImg, sunglassesImg];
 
@@ -107,14 +109,11 @@ function clothesSelectorEventHandler(event) {
 }
 
 function addClothes(e) {
-  if (e.target.classList.contains('vest')) {
-    outfit.addGarment(1, 'vest');
-    removeAllClothes();
-    vestImg.classList.remove('hidden');
-  } else if (e.target.classList.contains('dress')) {
-    outfit.addGarment(1, 'dress');
-    removeAllClothes();
-    dressImg.classList.remove('hidden');
+  for (var i = 0; i < clothesArray.length; i++) {
+    if (e.target.classList.contains(clothesArray[i])) {
+      outfit.addGarment(1, clothesArray[i]);
+      clothesImgArray[i].classList.remove('hidden');
+    }
   }
 }
 
@@ -286,6 +285,9 @@ function closeOutCard(event) {
     }
 
     event.target.closest('.saved-outfit-box').remove();
+    saveNewBearInput.value = '';
+    resetAllClothes();
+    defaultOutfit();
   }
 }
 
@@ -326,12 +328,11 @@ function reloadHats(hat) {
 }
 
 function reloadClothes(clothes) {
-  if (clothes == 'vest') {
-    removeAllClothes();
-    vestImg.classList.remove('hidden');
-  } else if (clothes == 'dress') {
-    removeAllClothes();
-    dressImg.classList.remove('hidden');
+  for (var i = 0; i < clothesArray.length; i++) {
+    if (clothes == clothesArray[i]) {
+      removeAllClothes();
+      clothesImgArray[i].classList.remove('hidden');
+    }
   }
 }
 
